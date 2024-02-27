@@ -10,6 +10,8 @@ import {
 import MainPage from "./pages/MainPage/MainPage";
 import LoginPage from "./pages/AuthPages/LoginPage/LoginPage";
 import RegisterPage from "./pages/AuthPages/RegisterPage/RegisterPage";
+import ForgotPage from "./pages/AuthPages/ForgotPage/ForgotPage";
+import ResetPage from "./pages/AuthPages/ResetPage/ResetPage";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -20,6 +22,8 @@ const App = () => {
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/forgot" element={<ForgotPage />} />
+        <Route path="/reset" element={<ResetPage />} />
         <Route path="/*" element={<Navigate to="/" />} />
       </Route>
     )
