@@ -10,11 +10,27 @@ export const Container = styled.div`
   gap: 24px;
   background-color: ${(props) => props.theme.colors.secondary};
   border-radius: 12px;
+
+  @media (max-width: 700px) {
+    width: 100%;
+    min-height: 100vh;
+    justify-content: center;
+    margin: 0;
+    padding: 32px 16px;
+    gap: 32px;
+    border-radius: 0px;
+  }
 `;
 
 export const Page = styled.div`
   padding: 200px 0;
+  min-height: 100vh;
   background: ${(props) => props.theme.colors.backgroundColor};
+
+  @media (max-width: 700px) {
+    padding: 0;
+    background: ${(props) => props.theme.colors.secondary};
+  }
 `;
 
 export const Title = styled.h1`

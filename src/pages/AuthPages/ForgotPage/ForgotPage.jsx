@@ -8,7 +8,7 @@ import {
   StyledForm,
   SubTitle,
   Title,
-} from "./ForgotPage.style";
+} from "../LoginPage/LoginPage.style";
 import TextInput from "../../../components/Inputs/TextInput/TextInput";
 import ButtonWide from "../../../components/Buttons/ButtonWide/ButtonWide";
 import { Formik } from "formik";
