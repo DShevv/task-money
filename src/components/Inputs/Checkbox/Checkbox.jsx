@@ -1,9 +1,14 @@
 import { Checkmark, Container, StyledCheckbox, Title } from "./Checkbox.style";
 
-function Checkbox({ name, title }) {
+function Checkbox({ required, name, title }) {
   return (
     <Container>
-      <StyledCheckbox type="checkbox" name={name} id={name} />
+      <StyledCheckbox
+        type="checkbox"
+        name={name}
+        id={name}
+        required={required}
+      />
       <Checkmark>
         <svg
           width="10"

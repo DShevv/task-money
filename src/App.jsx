@@ -5,9 +5,11 @@ import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
+  Navigate,
 } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
 import LoginPage from "./pages/AuthPages/LoginPage/LoginPage";
+import RegisterPage from "./pages/AuthPages/RegisterPage/RegisterPage";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -17,6 +19,8 @@ const App = () => {
           <Route index element={<MainPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/*" element={<Navigate to="/" />} />
       </Route>
     )
   );

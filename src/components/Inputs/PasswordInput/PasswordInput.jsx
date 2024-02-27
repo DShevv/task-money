@@ -1,6 +1,6 @@
-import { Container, Input, Title } from "./TextInput.style";
+import { Container, Input, Title } from "./PasswordInput.style";
 
-function TextInput({ iserror, type, title, name, placeholder }) {
+function PasswordInput({ iserror, type, title, name, placeholder }) {
   return (
     <Container>
       <Title iserror={iserror}>{title}</Title>
@@ -15,4 +15,4 @@ function TextInput({ iserror, type, title, name, placeholder }) {
   );
 }
 
-export default TextInput;
+export default PasswordInput;

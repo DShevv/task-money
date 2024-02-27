@@ -15,6 +15,7 @@ import Checkbox from "../../../components/Inputs/Checkbox/Checkbox";
 import TextLink from "../../../components/Links/TextLink/TextLink";
 import ButtonWide from "../../../components/Buttons/ButtonWide/ButtonWide";
 import { Formik } from "formik";
+import Divider from "../../../components/Divider/Divider";
 
 const LoginPage = observer(() => {
   const { isAuthorized } = authStore;
@@ -64,6 +65,8 @@ const LoginPage = observer(() => {
             <ButtonWide type="submit">Log In</ButtonWide>
           </StyledForm>
         </Formik>
+        <Divider />
+
         <TextLink to="/register">No account yet? Sign Up</TextLink>
       </Container>
     </Page>
