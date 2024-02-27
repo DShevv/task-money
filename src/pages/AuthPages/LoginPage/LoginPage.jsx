@@ -64,6 +64,7 @@ const LoginPage = observer(() => {
             <ButtonWide type="submit">Log In</ButtonWide>
           </StyledForm>
         </Formik>
+        <TextLink to="/register">No account yet? Sign Up</TextLink>
       </Container>
     </Page>
   );
