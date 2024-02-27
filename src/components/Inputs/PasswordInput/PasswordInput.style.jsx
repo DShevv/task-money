@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Field } from "formik";
 
 export const Container = styled.div`
+  position: relative;
   width: 100%;
 `;
 
@@ -16,6 +17,7 @@ export const Title = styled.div`
 
 export const Input = styled(Field)`
   padding: 12px 16px;
+  padding-right: 44px;
   width: 100%;
   background-color: transparent;
 
@@ -33,4 +35,15 @@ export const Input = styled(Field)`
   &::placeholder {
     color: ${(props) => props.theme.colors.textGray};
   }
+`;
+
+export const Eye = styled.div`
+  position: absolute;
+  right: 16px;
+  bottom: 20%;
+
+  cursor: pointer;
+  user-select: none;
+  color: ${(props) =>
+    props.isactive ? props.theme.colors.primary : props.theme.colors.grayLight};
 `;
