@@ -64,7 +64,7 @@ function RegisterPage() {
         >
           {(formik) => {
             const { errors } = formik;
-            console.log(errors);
+
             return (
               <Form>
                 <TextInput
