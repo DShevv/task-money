@@ -5,6 +5,11 @@ export const Title = styled.p`
   font-size: 16px;
   font-weight: 500;
   color: ${(props) => props.theme.colors.text};
+
+  @media (max-width: 1024px) {
+    font-size: 12px;
+    color: ${(props) => props.theme.colors.primary};
+  }
 `;
 
 export const Badge = styled.div`
@@ -23,6 +28,10 @@ export const Badge = styled.div`
   border-radius: 12px;
   color: ${(props) => props.theme.colors.text};
   background-color: ${(props) => props.theme.colors.grayEmpty};
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const Container = styled(NavLink)`
@@ -63,5 +72,24 @@ export const Container = styled(NavLink)`
 
   &.active ${Badge} {
     background-color: ${(props) => props.theme.colors.text};
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    width: fit-content;
+    padding: 4px 8px;
+    border-radius: 15px;
+    border-bottom: none;
+
+    &.active,
+    &:hover {
+      color: ${(props) => props.theme.colors.primary};
+      background-color: transparent;
+    }
+
+    &.active,
+    &.active ${Title}, &:hover ${Title} {
+      color: ${(props) => props.theme.colors.primary};
+    }
   }
 `;

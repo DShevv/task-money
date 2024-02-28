@@ -12,6 +12,7 @@ const ThemeDark: DefaultTheme = {
     background: "#FFFFFF",
     text: "#FFFFFF",
     textGray: "#E2E2E2",
+    textGrayDark: "#C1C1C1",
     textDark: "#000000",
     error: "#F44336",
     backgroundColor:

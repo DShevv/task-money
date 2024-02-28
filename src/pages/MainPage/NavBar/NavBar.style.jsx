@@ -7,9 +7,30 @@ export const Container = styled.aside`
   padding: 16px 16px 60px 16px;
 
   background-color: ${(props) => props.theme.colors.secondary};
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    height: 68px;
+    bottom: 0;
+    padding: 8px 16px;
+    border-radius: 20px;
+  }
 `;
 
 export const LinksList = styled.ul`
   list-style: none;
   margin-top: 24px;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    margin-top: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  @media (max-width: 480px) {
+    gap: 4px;
+    justify-content: space-between;
+  }
 `;

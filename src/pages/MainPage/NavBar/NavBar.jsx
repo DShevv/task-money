@@ -9,6 +9,7 @@ import {
   SvgTasks,
   SvgWallet,
 } from "../../../assets/icons/svgs";
+import Select from "../../../components/Selects/Select";
 
 function NavBar() {
   return (
@@ -46,6 +47,7 @@ function NavBar() {
           </SideBarLink>
         </li>
       </LinksList>
+      <Select className="desktop" items={["En", "Ge"]} />
     </Container>
   );
 }
