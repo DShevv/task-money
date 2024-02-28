@@ -17,7 +17,7 @@ function NavBar() {
       <UserInfo />
       <LinksList>
         <li>
-          <SideBarLink to="/tasks" title="Tasks" count={100}>
+          <SideBarLink to="/" title="Tasks" count={100}>
             <SvgTasks />
           </SideBarLink>
         </li>
