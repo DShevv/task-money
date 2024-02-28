@@ -8,6 +8,7 @@ const ThemeDark: DefaultTheme = {
     secondary: "#474747",
     gray: "#DDE1E6",
     grayLight: "#BDBCBC",
+    grayEmpty: "#686868",
     background: "#FFFFFF",
     text: "#FFFFFF",
     textGray: "#E2E2E2",

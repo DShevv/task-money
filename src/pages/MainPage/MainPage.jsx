@@ -1,7 +1,9 @@
 import { observer } from "mobx-react-lite";
 import authStore from "../../stores/auth-store";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { Container, Content, HeaderBlock } from "./MainPage.style";
+import NavBar from "./NavBar/NavBar";
 
 const MainPage = observer(() => {
   const { isAuthorized } = authStore;
@@ -13,7 +15,15 @@ const MainPage = observer(() => {
     }
   }, [isAuthorized, navigate]);
 
-  return <div>MainPage</div>;
+  return (
+    <Container>
+      <NavBar />
+      <Content>
+        <HeaderBlock />
+        <Outlet />
+      </Content>
+    </Container>
+  );
 });
 
 export default MainPage;

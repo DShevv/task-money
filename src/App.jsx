@@ -17,8 +17,13 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
-        <Route path="/">
-          <Route index element={<MainPage />} />
+        <Route path="/" element={<MainPage />}>
+          <Route path="/tasks" element={<>Tasks</>} />
+          <Route path="/challenge" element={<>Challenge</>} />
+          <Route path="/wallet" element={<>Wallet</>} />
+          <Route path="/rating" element={<>Rating</>} />
+          <Route path="/progress" element={<>Progress</>} />
+          <Route path="/settings" element={<>Settings</>} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />

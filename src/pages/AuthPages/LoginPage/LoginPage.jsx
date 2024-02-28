@@ -18,7 +18,7 @@ import { Formik } from "formik";
 import Divider from "../../../components/Divider/Divider";
 
 const LoginPage = observer(() => {
-  const { isAuthorized } = authStore;
+  const { isAuthorized, login } = authStore;
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const LoginPage = observer(() => {
           }}
           onSubmit={(values) => {
             console.log(values);
-            // login({ email: "test@example.com", password: "testPassword" });
+            login({ email: "test@example.com", password: "testPassword" });
           }}
         >
           <StyledForm>
