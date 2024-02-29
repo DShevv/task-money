@@ -14,6 +14,8 @@ export const Container = styled.section`
 export const Content = styled.section`
   margin-left: 256px;
   padding-left: 24px;
+  padding-bottom: 24px;
+  padding-right: 24px;
 
   @media (max-width: 1024px) {
     margin-left: 0;

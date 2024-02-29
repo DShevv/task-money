@@ -12,13 +12,14 @@ import LoginPage from "./pages/AuthPages/LoginPage/LoginPage";
 import RegisterPage from "./pages/AuthPages/RegisterPage/RegisterPage";
 import ForgotPage from "./pages/AuthPages/ForgotPage/ForgotPage";
 import ResetPage from "./pages/AuthPages/ResetPage/ResetPage";
+import TaskPage from "./pages/TaskPage/TaskPage";
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
         <Route path="/" element={<MainPage />}>
-          <Route path="/" element={<>Tasks</>} />
+          <Route path="/" element={<TaskPage />} />
           <Route path="/challenge" element={<>Challenge</>} />
           <Route path="/wallet" element={<>Wallet</>} />
           <Route path="/rating" element={<>Rating</>} />
