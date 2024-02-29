@@ -11,9 +11,7 @@ export const Container = styled.div`
   }
 `;
 
-//! change div to img
-
-export const UserImage = styled.div`
+export const UserImage = styled.img`
   width: 49px;
   height: 49px;
 
@@ -22,6 +20,11 @@ export const UserImage = styled.div`
   background-repeat: no-repeat;
   border-radius: 50%;
   background-color: ${(props) => props.theme.colors.grayEmpty};
+
+  @media (max-width: 1024px) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 export const UserName = styled.p`

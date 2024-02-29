@@ -5,6 +5,12 @@ export const TaskImage = styled.img`
   width: 93px;
   height: 93px;
   border-radius: 50%;
+
+  @media (max-width: 1024px) {
+    height: 44px;
+    flex: 0 0 44px;
+    max-width: 44px;
+  }
 `;
 
 export const Title = styled.h6`
@@ -15,6 +21,12 @@ export const Title = styled.h6`
   line-height: 100%;
   letter-spacing: 0.5px;
   color: ${(props) => props.theme.colors.text};
+
+  @media (max-width: 1024px) {
+    margin-top: 0;
+    flex: 1 1 auto;
+    font-size: 14px;
+  }
 `;
 
 export const Income = styled.div`
@@ -26,6 +38,12 @@ export const Income = styled.div`
   letter-spacing: 0.5px;
   text-transform: uppercase;
   color: ${(props) => props.theme.colors.text};
+
+  @media (max-width: 1024px) {
+    flex: 0 0 80px;
+    font-size: 14px;
+    margin-top: 0;
+  }
 `;
 
 export const Container = styled(NavLink)`
@@ -48,5 +66,13 @@ export const Container = styled(NavLink)`
 
   &:hover ${Income}, &:hover ${Title} {
     color: ${(props) => props.theme.colors.textDark};
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: row;
+    padding: 16px 12px;
+    gap: 12px;
+    width: 100%;
+    height: fit-content;
   }
 `;

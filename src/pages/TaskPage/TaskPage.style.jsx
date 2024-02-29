@@ -5,6 +5,10 @@ export const Container = styled.section`
   flex-direction: column;
   gap: 24px;
   height: fit-content;
+
+  @media (max-width: 1024px) {
+    padding: 20px 16px 0px 16px;
+  }
 `;
 
 export const Filters = styled.div`
@@ -22,4 +26,10 @@ export const TasksContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
+
+  @media (max-width: 1024px) {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    gap: 10px;
+  }
 `;

@@ -13,13 +13,15 @@ import RegisterPage from "./pages/AuthPages/RegisterPage/RegisterPage";
 import ForgotPage from "./pages/AuthPages/ForgotPage/ForgotPage";
 import ResetPage from "./pages/AuthPages/ResetPage/ResetPage";
 import TaskPage from "./pages/TaskPage/TaskPage";
+import SingleTask from "./pages/SingleTask/SingleTask";
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
         <Route path="/" element={<MainPage />}>
-          <Route path="/" element={<TaskPage />} />
+          <Route path="/tasks" element={<TaskPage />} />
+          <Route path="/tasks/:id" element={<SingleTask />} />
           <Route path="/challenge" element={<>Challenge</>} />
           <Route path="/wallet" element={<>Wallet</>} />
           <Route path="/rating" element={<>Rating</>} />

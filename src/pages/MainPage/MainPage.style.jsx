@@ -20,6 +20,8 @@ export const Content = styled.section`
   @media (max-width: 1024px) {
     margin-left: 0;
     padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
   }
 `;
 

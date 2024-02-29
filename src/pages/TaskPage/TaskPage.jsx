@@ -10,6 +10,7 @@ import { useState } from "react";
 import SelectSolid from "../../components/Selects/SelectSolid/SelectSolid";
 import Task from "./Task/Task";
 import placeholderImg from "../../assets/placeholders/white.png";
+import MobileHeader from "../../components/MobileHeader/MobileHeader";
 
 function TaskPage() {
   const [filters, setFilters] = useState({
@@ -26,7 +27,8 @@ function TaskPage() {
 
   return (
     <Container>
-      <H1>Tasks</H1>
+      <H1 className={"desktop"}>Tasks</H1>
+      <MobileHeader title={"Tasks"} />
       <Filters>
         <Radio
           items={["New", "Taken", "Completed"]}
@@ -35,10 +37,15 @@ function TaskPage() {
           onChange={createOnChange("category")}
         />
         <SelectsContainer>
-          <SelectSolid items={["Subscribe", "Like", "Repost"]} label="Type" />
+          <SelectSolid
+            items={["Subscribe", "Like", "Repost"]}
+            label="Type"
+            style={{ width: "125px" }}
+          />
           <SelectSolid
             items={["Social network", "Youtube"]}
             value={"Social network"}
+            style={{ width: "190px" }}
           />
         </SelectsContainer>
       </Filters>

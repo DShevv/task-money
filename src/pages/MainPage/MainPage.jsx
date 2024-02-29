@@ -13,6 +13,7 @@ const MainPage = observer(() => {
     if (!isAuthorized) {
       return navigate("/login");
     }
+    navigate("/tasks");
   }, [isAuthorized, navigate]);
 
   return (

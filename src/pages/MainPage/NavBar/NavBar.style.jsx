@@ -7,6 +7,8 @@ export const Container = styled.aside`
   padding: 16px 16px 60px 16px;
 
   background-color: ${(props) => props.theme.colors.secondary};
+  box-shadow: 0px -6px 23px -6px rgba(0, 0, 0, 0.507);
+  z-index: 1;
 
   @media (max-width: 1024px) {
     width: 100%;

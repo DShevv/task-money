@@ -20,6 +20,12 @@ export const RadioBtn = styled.label`
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0.5px;
+
+  @media (max-width: 1024px) {
+    font-size: 14px;
+    padding: 16px 24px;
+    font-weight: 700;
+  }
 `;
 
 export const RadioInput = styled.input`

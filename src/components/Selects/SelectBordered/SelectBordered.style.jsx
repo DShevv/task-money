@@ -25,7 +25,6 @@ export const StyledArrow = styled.div`
 `;
 
 export const Container = styled.div`
-  margin-top: 16px;
   position: relative;
   border: 1px solid ${(props) => props.theme.colors.grayLight};
   border-radius: 8px;

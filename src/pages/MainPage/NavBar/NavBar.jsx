@@ -17,7 +17,7 @@ function NavBar() {
       <UserInfo />
       <LinksList>
         <li>
-          <SideBarLink to="/" title="Tasks" count={100}>
+          <SideBarLink to="/tasks" title="Tasks" count={100}>
             <SvgTasks />
           </SideBarLink>
         </li>
@@ -27,7 +27,7 @@ function NavBar() {
           </SideBarLink>
         </li>
         <li>
-          <SideBarLink to="/wallet" title="Wallet">
+          <SideBarLink to="/wallet" title="Wallet" count={9}>
             <SvgWallet />
           </SideBarLink>
         </li>
@@ -47,7 +47,11 @@ function NavBar() {
           </SideBarLink>
         </li>
       </LinksList>
-      <SelectBordered className="desktop" items={["En", "Ge"]} />
+      <SelectBordered
+        className="desktop"
+        items={["En", "Ge"]}
+        style={{ marginTop: "16px" }}
+      />
     </Container>
   );
 }

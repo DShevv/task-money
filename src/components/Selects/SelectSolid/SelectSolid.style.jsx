@@ -16,6 +16,7 @@ export const PopUp = styled.ul`
   display: none;
   flex-direction: column;
   background: ${(props) => props.theme.colors.secondary};
+  box-shadow: 0px 6px 23px -6px rgba(0, 0, 0, 0.507);
 
   &::after {
     content: "";
@@ -72,6 +73,16 @@ export const Container = styled.div`
   @media (max-width: 1024px) {
     width: 60px;
 
+    &.lang {
+      padding: 6.5px 10px;
+      font-size: 14px;
+
+      & ${PopUp} {
+        padding: 6.5px 0px;
+        font-size: 14px;
+      }
+    }
+
     &.mobile {
       display: flex;
     }
@@ -88,5 +99,9 @@ export const PopUpItem = styled.li`
   &:hover {
     color: ${(props) => props.theme.colors.textDark};
     background-color: ${(props) => props.theme.colors.primary};
+  }
+
+  @media (max-width: 1024px) {
+    padding: 3px 16px;
   }
 `;

@@ -7,7 +7,7 @@ import {
 import { useEffect, useState, useRef } from "react";
 import useOutsideClick from "../../../hooks/useOutsideClick";
 
-function SelectBordered({ items, onChange, className }) {
+function SelectBordered({ style, items, onChange, className }) {
   const [isActive, setIsActive] = useState(false);
   const [current, setCurrent] = useState(items[0]);
   const ref = useRef(null);
@@ -34,6 +34,7 @@ function SelectBordered({ items, onChange, className }) {
       onClick={toggle}
       className={`${className} ${isActive ? "active" : ""}`}
       ref={ref}
+      style={style}
     >
       {current}
       <StyledArrow />

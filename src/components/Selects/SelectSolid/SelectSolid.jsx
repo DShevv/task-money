@@ -2,7 +2,7 @@ import { StyledArrow, Container, PopUp, PopUpItem } from "./SelectSolid.style";
 import { useEffect, useState, useRef } from "react";
 import useOutsideClick from "../../../hooks/useOutsideClick";
 
-function SelectSolid({ items, onChange, value, className, label }) {
+function SelectSolid({ items, onChange, value, className, label, ...other }) {
   const [isActive, setIsActive] = useState(false);
   const [current, setCurrent] = useState(value === undefined ? label : value);
   const ref = useRef(null);
@@ -29,6 +29,7 @@ function SelectSolid({ items, onChange, value, className, label }) {
       onClick={toggle}
       className={`${className ? className : ""} ${isActive ? "active" : ""}`}
       ref={ref}
+      {...other}
     >
       {current}
       <StyledArrow />
