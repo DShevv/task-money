@@ -14,8 +14,17 @@ import ForgotPage from "./pages/AuthPages/ForgotPage/ForgotPage";
 import ResetPage from "./pages/AuthPages/ResetPage/ResetPage";
 import TaskPage from "./pages/TaskPage/TaskPage";
 import SingleTask from "./pages/SingleTask/SingleTask";
+import { observer } from "mobx-react-lite";
+import { useEffect } from "react";
+import authStore from "./stores/auth-store";
 
-const App = () => {
+const App = observer(() => {
+  const { stopStore } = authStore;
+
+  useEffect(() => {
+    return () => stopStore();
+  }, []);
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
@@ -44,6 +53,6 @@ const App = () => {
       </ThemeProvider>
     </>
   );
-};
+});
 
 export default App;

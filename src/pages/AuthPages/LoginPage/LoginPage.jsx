@@ -23,7 +23,7 @@ const LoginPage = observer(() => {
 
   useEffect(() => {
     if (isAuthorized) {
-      navigate("/");
+      navigate("/tasks");
     }
   }, [isAuthorized, navigate]);
 

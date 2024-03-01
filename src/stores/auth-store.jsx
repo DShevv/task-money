@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { makePersistable } from "mobx-persist-store";
+import { makePersistable, stopPersisting } from "mobx-persist-store";
 import AuthService from "../services/AuthService";
 
 class AuthStore {
@@ -14,13 +14,26 @@ class AuthStore {
     });
   }
 
+  stopStore() {
+    stopPersisting(this);
+  }
+
   login = async (data) => {
-    /*  const res = await AuthService.login(data.email, data.password);
-    const resData = await res.json(); */
+    try {
+      /*  const res = await AuthService.login(data.email, data.password);
 
-    console.log(data);
+      if (res.status !== 200) {
+        throw new Error(res);
+      }
 
-    this.isAuthorized = true;
+      const resData = await res.json(); */
+
+      console.log(data);
+
+      this.isAuthorized = true;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   register = (data) => {

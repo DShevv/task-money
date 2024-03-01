@@ -1,4 +1,5 @@
 import axios from "axios";
+import getRefreshToken from "../utils/getRefreshToken";
 
 const api = axios.create({
   // withCredentials: true,
@@ -15,7 +16,14 @@ api.interceptors.response.use(
   (response) => {
     return response;
   },
-  (error) => {
+  async (error) => {
+    const reqConfig = error.config;
+    if (error.response.status === 401 && !reqConfig._retry) {
+      reqConfig._retry = true;
+      const newToken = await getRefreshToken();
+      reqConfig.headers.Authorization = `Bearer ${newToken}`;
+      return api(reqConfig);
+    }
     return error;
   }
 );
