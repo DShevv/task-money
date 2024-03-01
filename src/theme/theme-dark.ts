@@ -9,6 +9,7 @@ const ThemeDark: DefaultTheme = {
     gray: "#DDE1E6",
     grayLight: "#BDBCBC",
     grayEmpty: "#686868",
+    dark: "#262525",
     background: "#FFFFFF",
     text: "#FFFFFF",
     textGray: "#E2E2E2",
