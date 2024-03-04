@@ -1,7 +1,11 @@
 import { StyledThin } from "./ButtonThin.style";
 
-function ButtonThin({ onClick, children }) {
-  return <StyledThin onClick={onClick}>{children}</StyledThin>;
+function ButtonThin({ onClick, children, ...other }) {
+  return (
+    <StyledThin onClick={onClick} {...other}>
+      {children}
+    </StyledThin>
+  );
 }
 
 export default ButtonThin;

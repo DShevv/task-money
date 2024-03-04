@@ -10,7 +10,7 @@ import {
   HistoryHeader,
   HistoryTitle,
 } from "./WalletPage.style";
-import ButtonMedium from "../../components/Buttons/ButtonMedium/ButtonMedium";
+import LinkButtonMedium from "../../components/Links/LinkButtonMedium/LinkButtonMedium";
 import SelectSolid from "../../components/Selects/SelectSolid/SelectSolid";
 import HistoryTable from "./HistoryTable/HistoryTable";
 
@@ -36,8 +36,8 @@ function WalletPage() {
           <span>1000 USD</span>
         </Balance>
         <ControlsButtons>
-          <ButtonMedium>Top up</ButtonMedium>
-          <ButtonMedium>Withdraw</ButtonMedium>
+          <LinkButtonMedium to={"topup"}>Top up</LinkButtonMedium>
+          <LinkButtonMedium to={"withdraw"}>Withdraw</LinkButtonMedium>
         </ControlsButtons>
       </Controls>
       <HistoryHeader>
@@ -61,8 +61,8 @@ function WalletPage() {
       </HistoryHeader>
       <HistoryTable
         items={[
-          { status: "Status", method: "Method", sum: "Sum", to: "1" },
-          { status: "Status", method: "Method", sum: "Sum", to: "1" },
+          { status: "Status", method: "Method", sum: "Sum", to: "topup/1" },
+          { status: "Status", method: "Method", sum: "Sum", to: "topup/2" },
           { status: "Status", method: "Method", sum: "Sum", to: "1" },
           { status: "Status", method: "Method", sum: "Sum", to: "1" },
           { status: "Status", method: "Method", sum: "Sum", to: "1" },

@@ -19,7 +19,7 @@ import MobileHeader from "../../components/MobileHeader/MobileHeader";
 
 function SingleTask() {
   return (
-    <Container style={{ gap: "10px" }}>
+    <Container>
       <H1 className={"desktop"}>Tasks</H1>
       <MobileHeader title={"Tasks"} />
 

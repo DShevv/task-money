@@ -18,6 +18,9 @@ import { observer } from "mobx-react-lite";
 import { useEffect } from "react";
 import authStore from "./stores/auth-store";
 import WalletPage from "./pages/WalletPage/WalletPage";
+import TopupPage from "./pages/TopupPage/TopupPage";
+import SingleTopupPage from "./pages/SingleTopupPage/SingleTopupPage";
+import WithdrawPage from "./pages/WithdrawPage/WithdrawPage";
 
 const App = observer(() => {
   const { stopStore } = authStore;
@@ -33,7 +36,12 @@ const App = observer(() => {
           <Route path="/tasks" element={<TaskPage />} />
           <Route path="/tasks/:id" element={<SingleTask />} />
           <Route path="/challenge" element={<>Challenge</>} />
-          <Route path="/wallet" element={<WalletPage />} />
+          <Route path="/wallet">
+            <Route index element={<WalletPage />} />
+            <Route path="/wallet/topup" element={<TopupPage />} />
+            <Route path="/wallet/topup/:id" element={<SingleTopupPage />} />
+            <Route path="/wallet/withdraw" element={<WithdrawPage />} />
+          </Route>
           <Route path="/rating" element={<>Rating</>} />
           <Route path="/progress" element={<>Progress</>} />
           <Route path="/settings" element={<>Settings</>} />

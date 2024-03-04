@@ -12,10 +12,6 @@ export const BackLink = styled(NavLink)`
   font-weight: 300;
   font-size: 18px;
 
-  span {
-    font-size: 14px;
-  }
-
   &:hover {
     color: ${(props) => props.theme.colors.primary};
   }
@@ -23,7 +19,7 @@ export const BackLink = styled(NavLink)`
   @media (max-width: 1024px) {
     font-weight: 300;
     font-size: 14px;
-    margin-bottom: 30px;
+    margin-bottom: 14px;
   }
 `;
 
@@ -33,7 +29,7 @@ export const TaskInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-
+  margin-top: 25px;
   border-radius: 10px;
   background-color: ${(props) => props.theme.colors.secondary};
   color: ${(props) => props.theme.colors.text};
@@ -43,6 +39,7 @@ export const TaskInfo = styled.div`
     left: -16px;
     width: calc(100% + 32px);
     padding: 18px 28px;
+    margin-top: 0;
   }
 `;
 
