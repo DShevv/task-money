@@ -18,6 +18,7 @@ const ThemeDark: DefaultTheme = {
     error: "#F44336",
     backgroundColor:
       " linear-gradient(180deg, rgba(41,41,41,1) 0%, rgba(38,37,37,1) 100%)",
+    primaryAlpha: "rgba(254, 187, 57, 0.5)",
   },
 };
 

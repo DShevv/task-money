@@ -21,6 +21,7 @@ import WalletPage from "./pages/WalletPage/WalletPage";
 import TopupPage from "./pages/TopupPage/TopupPage";
 import SingleTopupPage from "./pages/SingleTopupPage/SingleTopupPage";
 import WithdrawPage from "./pages/WithdrawPage/WithdrawPage";
+import ProgressPage from "./pages/ProgressPage/ProgressPage";
 
 const App = observer(() => {
   const { stopStore } = authStore;
@@ -43,7 +44,7 @@ const App = observer(() => {
             <Route path="/wallet/withdraw" element={<WithdrawPage />} />
           </Route>
           <Route path="/rating" element={<>Rating</>} />
-          <Route path="/progress" element={<>Progress</>} />
+          <Route path="/progress" element={<ProgressPage />} />
           <Route path="/settings" element={<>Settings</>} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
