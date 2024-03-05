@@ -41,6 +41,10 @@ export const PhotoButtons = styled.div`
   gap: 8px;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 770px) {
+    padding-right: 0;
+  }
 `;
 
 export const PhotoTitle = styled.h2`

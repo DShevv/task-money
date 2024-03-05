@@ -26,7 +26,8 @@ export const Input = styled(Field)`
 
   border: none;
   outline: none;
-  border-bottom: solid 1px
+  border-radius: 10px;
+  border: solid 1px
     ${(props) =>
       props.iserror ? props.theme.colors.error : props.theme.colors.grayLight};
 

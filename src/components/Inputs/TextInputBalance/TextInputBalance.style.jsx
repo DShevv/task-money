@@ -20,7 +20,8 @@ export const Container = styled.div`
   justify-content: space-between;
   gap: 16px;
   padding: 12px 16px;
-  border-bottom: solid 1px
+  border-radius: 10px;
+  border: solid 1px
     ${(props) =>
       props.iserror ? props.theme.colors.error : props.theme.colors.grayLight};
 

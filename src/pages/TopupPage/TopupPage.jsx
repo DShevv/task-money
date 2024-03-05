@@ -59,7 +59,6 @@ function TopupPage() {
           <SelectBorderedPrimary
             items={["Paypal", "USDT", "Visa"]}
             label={"Method"}
-            style={{ width: "180px" }}
             value={values.method}
             onChange={methodHandler}
             iserror={errors.method}

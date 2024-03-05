@@ -40,6 +40,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 180px;
 
   &.active {
     border-bottom-color: transparent;
@@ -65,8 +66,6 @@ export const Container = styled.div`
   }
 
   @media (max-width: 1024px) {
-    width: 60px;
-
     &.mobile {
       display: flex;
     }
@@ -74,6 +73,10 @@ export const Container = styled.div`
     &.desktop {
       display: none;
     }
+  }
+
+  @media (max-width: 600px) {
+    width: 337px;
   }
 `;
 

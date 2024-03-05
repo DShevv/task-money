@@ -25,7 +25,7 @@ export const BackLink = styled(NavLink)`
 
 export const TaskInfo = styled.div`
   padding: 24px;
-  width: 774px;
+  max-width: 774px;
   display: flex;
   flex-direction: column;
   gap: 24px;

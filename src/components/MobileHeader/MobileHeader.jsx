@@ -3,6 +3,7 @@ import { Container, Controls } from "./MobileHeader.style";
 import { UserImage } from "../../pages/MainPage/NavBar/UserInfo/UserInfo.style";
 import placeholderImage from "./../../assets/placeholders/gray.png";
 import SelectSolid from "../Selects/SelectSolid/SelectSolid";
+import { NavLink } from "react-router-dom";
 
 function MobileHeader({ title }) {
   return (
@@ -16,7 +17,9 @@ function MobileHeader({ title }) {
           value={"En"}
           style={{ marginTop: "0px" }}
         />
-        <UserImage src={placeholderImage} alt={"username"} />
+        <NavLink to={"/settings"}>
+          <UserImage src={placeholderImage} alt={"username"} />
+        </NavLink>
       </Controls>
     </Container>
   );

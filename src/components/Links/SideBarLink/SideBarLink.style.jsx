@@ -91,5 +91,9 @@ export const Container = styled(NavLink)`
     &.active ${Title}, &:hover ${Title} {
       color: ${(props) => props.theme.colors.primary};
     }
+
+    &.desktop {
+      display: none;
+    }
   }
 `;

@@ -41,8 +41,8 @@ function NavBar() {
             <SvgProgress />
           </SideBarLink>
         </li>
-        <li>
-          <SideBarLink to="/settings" title="Settings">
+        <li className="desktop">
+          <SideBarLink to="/settings" title="Settings" className={"desktop"}>
             <SvgSettings />
           </SideBarLink>
         </li>
