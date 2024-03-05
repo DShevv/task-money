@@ -22,6 +22,7 @@ import TopupPage from "./pages/TopupPage/TopupPage";
 import SingleTopupPage from "./pages/SingleTopupPage/SingleTopupPage";
 import WithdrawPage from "./pages/WithdrawPage/WithdrawPage";
 import ProgressPage from "./pages/ProgressPage/ProgressPage";
+import SettingsPage from "./pages/SettingsPage/SettingsPage";
 
 const App = observer(() => {
   const { stopStore } = authStore;
@@ -45,7 +46,7 @@ const App = observer(() => {
           </Route>
           <Route path="/rating" element={<>Rating</>} />
           <Route path="/progress" element={<ProgressPage />} />
-          <Route path="/settings" element={<>Settings</>} />
+          <Route path="/settings" element={<SettingsPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />

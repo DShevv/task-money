@@ -5,6 +5,7 @@ const ThemeDark: DefaultTheme = {
 
   colors: {
     primary: "#FEBB39",
+    primaryDark: "#c18613",
     secondary: "#474747",
     gray: "#DDE1E6",
     grayLight: "#BDBCBC",
@@ -14,6 +15,7 @@ const ThemeDark: DefaultTheme = {
     text: "#FFFFFF",
     textGray: "#E2E2E2",
     textGrayDark: "#C1C1C1",
+    textGrayLight: "#697077",
     textDark: "#000000",
     error: "#F44336",
     backgroundColor:

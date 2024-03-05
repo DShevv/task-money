@@ -1,7 +1,7 @@
-import { Container } from "./FileInput.style";
-import { Input } from "./FileInput.style";
+import { Container } from "./FileInputSharp.style";
+import { Input } from "./FileInputSharp.style";
 
-function FileInput({ accept, placeholder, onChange, ...other }) {
+function FileInputSharp({ accept, placeholder, onChange, ...other }) {
   return (
     <Container {...other}>
       <Input
@@ -9,7 +9,7 @@ function FileInput({ accept, placeholder, onChange, ...other }) {
         accept={accept}
         onChange={(e) => {
           if (e.target.files && e.target.files !== null) {
-            onChange(e.target.files);
+            onChange(e.target.files[0]);
           }
         }}
       />
@@ -18,4 +18,4 @@ function FileInput({ accept, placeholder, onChange, ...other }) {
   );
 }
 
-export default FileInput;
+export default FileInputSharp;
