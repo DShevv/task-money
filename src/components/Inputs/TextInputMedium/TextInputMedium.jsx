@@ -11,7 +11,7 @@ function TextInputMedium({
 }) {
   return (
     <Container>
-      <Title iserror={iserror}>{title}</Title>
+      {title && <Title iserror={iserror}>{title}</Title>}
       <Input
         iserror={iserror}
         name={name}

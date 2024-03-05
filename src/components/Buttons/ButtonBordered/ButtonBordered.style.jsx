@@ -12,6 +12,7 @@ export const StyledThin = styled(StyledButton)`
     border-color: ${(props) => props.theme.colors.primary};
     color: ${(props) => props.theme.colors.primary};
   }
+
   &.mobile {
     display: none;
   }
