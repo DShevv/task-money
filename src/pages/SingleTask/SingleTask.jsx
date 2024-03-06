@@ -16,8 +16,12 @@ import placeholderImg from "../../assets/placeholders/white.png";
 import FileInput from "../../components/Inputs/FileInput/FileInput";
 import ButtonThin from "../../components/Buttons/ButtonThin/ButtonThin";
 import MobileHeader from "../../components/MobileHeader/MobileHeader";
+import { useState } from "react";
+import { FileContainer } from "../SingleTopupPage/SingleTopupPage.style";
 
 function SingleTask() {
+  const [file, setFile] = useState(undefined);
+
   return (
     <Container>
       <H1 className={"desktop"}>Tasks</H1>
@@ -42,7 +46,14 @@ function SingleTask() {
           www.twitter.com/3214214
         </TaskLink>
         <TaskButtons>
-          <FileInput accept={"image/*"} placeholder={"Attach file"} />
+          <FileContainer>
+            <FileInput
+              accept={"image/*"}
+              placeholder={"Attach file"}
+              onChange={(value) => setFile(value)}
+            />
+            <span>{file ? file.name : ""}</span>
+          </FileContainer>
           <ButtonThin onClick={() => {}}>Complete</ButtonThin>
         </TaskButtons>
       </TaskInfo>

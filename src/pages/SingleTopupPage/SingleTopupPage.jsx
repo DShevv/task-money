@@ -14,35 +14,11 @@ import FileInput from "../../components/Inputs/FileInput/FileInput";
 import ButtonThin from "../../components/Buttons/ButtonThin/ButtonThin";
 
 function SingleTopupPage() {
-  const [values, setValues] = useState({
-    method: undefined,
-    amount: "",
-  });
+  const [file, setFile] = useState(undefined);
   const [errors, setError] = useState({ method: 0, amount: 0 });
 
-  const methodHandler = (value) => {
-    setValues({ ...values, method: value });
-  };
-
-  const amountHandler = (value) => {
-    setValues({ ...values, amount: value });
-  };
-
-  const validate = (field) => {
-    if (
-      values[field] === undefined ||
-      values[field] === "" ||
-      values[field] < 1 ||
-      values[field] === "Method"
-    ) {
-      return 1;
-    }
-    return 0;
-  };
-
   const onSubmit = () => {
-    setError({ method: validate("method"), amount: validate("amount") });
-    console.log(values);
+    console.log(file);
   };
 
   return (
@@ -66,8 +42,12 @@ function SingleTopupPage() {
         </TopupHeader>
         <TaskButtons>
           <FileContainer>
-            <FileInput accept={"image/*"} placeholder={"Attach file"} />
-            <span>Attach the payment receipt</span>
+            <FileInput
+              accept={"image/*"}
+              placeholder={"Attach file"}
+              onChange={(value) => setFile(value)}
+            />
+            <span>{file ? file.name : "Attach the payment receipt"}</span>
           </FileContainer>
           <ButtonThin onClick={() => {}}>Send</ButtonThin>
         </TaskButtons>

@@ -9,7 +9,7 @@ function FileInput({ accept, placeholder, onChange, ...other }) {
         accept={accept}
         onChange={(e) => {
           if (e.target.files && e.target.files !== null) {
-            onChange(e.target.files);
+            onChange(e.target.files[0]);
           }
         }}
       />
