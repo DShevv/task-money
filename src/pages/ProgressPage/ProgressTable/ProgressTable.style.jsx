@@ -5,7 +5,10 @@ export const Container = styled.ul`
   flex-wrap: wrap;
   gap: 24px;
   list-style: none;
-  justify-content: center;
+
+  @media (max-width: 1024px) {
+    justify-content: center;
+  }
 
   @media (max-width: 798px) {
     flex-wrap: nowrap;

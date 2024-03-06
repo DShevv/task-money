@@ -26,6 +26,10 @@ export const RadioBtn = styled.label`
     padding: 16px 24px;
     font-weight: 700;
   }
+
+  @media (max-width: 390px) {
+    padding: 16px 20px;
+  }
 `;
 
 export const RadioInput = styled.input`

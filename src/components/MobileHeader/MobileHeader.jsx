@@ -5,9 +5,9 @@ import placeholderImage from "./../../assets/placeholders/gray.png";
 import SelectSolid from "../Selects/SelectSolid/SelectSolid";
 import { NavLink } from "react-router-dom";
 
-function MobileHeader({ title }) {
+function MobileHeader({ title, className, ...other }) {
   return (
-    <Container className="mobile">
+    <Container className={`mobile ${className}`} {...other}>
       <H1>{title}</H1>
 
       <Controls>
