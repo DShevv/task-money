@@ -6,7 +6,7 @@ export const Container = styled.ul`
   gap: 24px;
   list-style: none;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1070px) {
     justify-content: center;
   }
 
