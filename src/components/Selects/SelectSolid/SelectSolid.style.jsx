@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import arrow from "../../../assets/icons/openArrow.svg";
 
 export const PopUp = styled.ul`
   position: absolute;
@@ -34,7 +33,9 @@ export const PopUp = styled.ul`
 export const StyledArrow = styled.div`
   width: 12px;
   height: 7px;
-  background-image: url(${arrow});
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Container = styled.div`

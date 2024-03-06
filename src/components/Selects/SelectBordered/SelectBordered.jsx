@@ -6,6 +6,7 @@ import {
 } from "./SelectBordered.style";
 import { useEffect, useState, useRef } from "react";
 import useOutsideClick from "../../../hooks/useOutsideClick";
+import { SvgOpenArrow } from "../../../assets/icons/svgs";
 
 function SelectBordered({ style, items, onChange, className }) {
   const [isActive, setIsActive] = useState(false);
@@ -37,7 +38,9 @@ function SelectBordered({ style, items, onChange, className }) {
       style={style}
     >
       {current}
-      <StyledArrow />
+      <StyledArrow>
+        <SvgOpenArrow />
+      </StyledArrow>
       <PopUp>
         {items.map(
           (elem) =>

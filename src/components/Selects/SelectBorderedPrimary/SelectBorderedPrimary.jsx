@@ -6,6 +6,7 @@ import {
 } from "./SelectBorderedPrimary.style";
 import { useEffect, useState, useRef } from "react";
 import useOutsideClick from "../../../hooks/useOutsideClick";
+import { SvgOpenArrow } from "../../../assets/icons/svgs";
 
 function SelectBorderedPrimary({
   items,
@@ -44,7 +45,9 @@ function SelectBorderedPrimary({
       {...other}
     >
       {current}
-      <StyledArrow />
+      <StyledArrow>
+        <SvgOpenArrow />
+      </StyledArrow>
       <PopUp>
         {items.map(
           (elem) =>
