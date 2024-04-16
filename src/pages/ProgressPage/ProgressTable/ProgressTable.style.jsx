@@ -36,7 +36,7 @@ export const ProgressBar = styled.div`
   &::after {
     position: absolute;
     content: "";
-    width: ${(props) => `${props.level}%`};
+    width: ${(props) => `${props.$level}%`};
     height: 2px;
     top: 0;
     left: 0;
@@ -63,22 +63,22 @@ export const Item = styled.li`
   border-radius: 10px;
   line-height: 100%;
   color: ${(props) =>
-    props.completed ? props.theme.colors.textDark : props.theme.colors.text};
+    props.$completed ? props.theme.colors.textDark : props.theme.colors.text};
   background-color: ${(props) =>
-    props.completed
+    props.$completed
       ? props.theme.colors.primary
       : props.theme.colors.secondary};
 
   & ${ProgressBar} {
     background-color: ${(props) =>
-      props.completed
+      props.$completed
         ? props.theme.colors.textDark
         : props.theme.colors.primaryAlpha};
   }
 
   & ${ProgressBar}::after {
     background-color: ${(props) =>
-      props.completed
+      props.$completed
         ? props.theme.colors.textDark
         : props.theme.colors.primary};
   }

@@ -12,8 +12,11 @@ import SelectBorderedPrimary from "../../components/Selects/SelectBorderedPrimar
 import TextInputMedium from "../../components/Inputs/TextInputMedium/TextInputMedium";
 import { useState } from "react";
 import ButtonMedium from "../../components/Buttons/ButtonMedium/ButtonMedium";
+import { useTranslation } from "react-i18next";
 
 function TopupPage() {
+  const { t } = useTranslation();
+
   const [values, setValues] = useState({
     method: undefined,
     amount: "",
@@ -33,7 +36,7 @@ function TopupPage() {
       values[field] === undefined ||
       values[field] === "" ||
       values[field] < 1 ||
-      values[field] === "Method"
+      values[field] === t("Method")
     ) {
       return 1;
     }
@@ -47,32 +50,34 @@ function TopupPage() {
 
   return (
     <StyledContainer>
-      <H1 className="desktop">Top up</H1>
-      <MobileHeader title={"Top up"} />
+      <H1 className="desktop">{t("Topup")}</H1>
+      <MobileHeader title={t("Topup")} />
       <BackLink to={"/wallet"}>
         <SvgBackArrow />
-        <span>Back to wallet</span>
+        <span>
+          {t("BackTo")} {t("Wallet").toLowerCase()}
+        </span>
       </BackLink>
       <TopupInfo>
         <TopupHeader>
-          <TopupTitle>Chose your payment method</TopupTitle>
+          <TopupTitle>{t("ChosePayment")}</TopupTitle>
           <SelectBorderedPrimary
             items={["Paypal", "USDT", "Visa"]}
-            label={"Method"}
+            label={t("Method")}
             value={values.method}
             onChange={methodHandler}
-            iserror={errors.method}
+            $iserror={errors.method}
           />
         </TopupHeader>
         <TextInputMedium
           type={"number"}
           name={"amount"}
-          placeholder={"Top up amount"}
+          placeholder={t("topAmount")}
           value={values.amount}
           iserror={errors.amount}
           onChange={amountHandler}
         />
-        <ButtonMedium onClick={onSubmit}>Continue</ButtonMedium>
+        <ButtonMedium onClick={onSubmit}>{t("Continue")}</ButtonMedium>
       </TopupInfo>
     </StyledContainer>
   );

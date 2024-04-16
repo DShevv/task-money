@@ -14,8 +14,10 @@ import TextInputMedium from "../../components/Inputs/TextInputMedium/TextInputMe
 import { useState } from "react";
 import ButtonMedium from "../../components/Buttons/ButtonMedium/ButtonMedium";
 import TextInputBalance from "../../components/Inputs/TextInputBalance/TextInputBalance";
+import { useTranslation } from "react-i18next";
 
 function WithdrawPage() {
+  const { t } = useTranslation();
   const [values, setValues] = useState({
     method: undefined,
     amount: "",
@@ -39,7 +41,7 @@ function WithdrawPage() {
       values[field] === undefined ||
       values[field] === "" ||
       values[field] < 1 ||
-      values[field] === "Method"
+      values[field] === t("Method")
     ) {
       return 1;
     }
@@ -57,29 +59,31 @@ function WithdrawPage() {
 
   return (
     <StyledContainer>
-      <H1 className="desktop">Withdraw</H1>
-      <MobileHeader title={"Withdraw"} />
+      <H1 className="desktop">{t("Withdraw")}</H1>
+      <MobileHeader title={t("Withdraw")} />
       <BackLink to={"/wallet"}>
         <SvgBackArrow />
-        <span>Back to wallet</span>
+        <span>
+          {t("BackTo")} {t("Wallet").toLowerCase()}
+        </span>
       </BackLink>
       <TopupInfo>
         <TopupHeader>
-          <TopupTitle>Chose your payment method</TopupTitle>
+          <TopupTitle>{t("ChosePayment")}</TopupTitle>
           <SelectBorderedPrimary
             items={["Paypal", "USDT", "Visa"]}
-            label={"Method"}
+            label={t("Method")}
             style={{ width: "180px" }}
             value={values.method}
             onChange={methodHandler}
-            iserror={errors.method}
+            $iserror={errors.method}
           />
         </TopupHeader>
         <InputsContainer>
           <TextInputMedium
             type={"text"}
             name={"requisites"}
-            placeholder={"Requisites"}
+            placeholder={t("Requisites")}
             value={values.requisites}
             iserror={errors.requisites}
             onChange={requisitesHandler}
@@ -87,14 +91,14 @@ function WithdrawPage() {
           <TextInputBalance
             type={"number"}
             name={"amount"}
-            placeholder={"Top up amount"}
+            placeholder={t("topAmount")}
             value={values.amount}
             iserror={errors.amount}
             onChange={amountHandler}
             balance={"1000 USD"}
           />
         </InputsContainer>
-        <ButtonMedium onClick={onSubmit}>Continue</ButtonMedium>
+        <ButtonMedium onClick={onSubmit}>{t("Continue")}</ButtonMedium>
       </TopupInfo>
     </StyledContainer>
   );

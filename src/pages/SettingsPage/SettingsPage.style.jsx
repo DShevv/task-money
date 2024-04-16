@@ -81,7 +81,7 @@ export const ImageReq = styled.div`
   padding-left: 47px;
   border-left: solid 1px ${(props) => props.theme.colors.gray};
   color: ${(props) =>
-    props.iserror ? props.theme.colors.error : props.theme.colors.text};
+    props.$iserror ? props.theme.colors.error : props.theme.colors.text};
 
   @media (max-width: 770px) {
     display: none;

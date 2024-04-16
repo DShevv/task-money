@@ -18,23 +18,27 @@ import ButtonThin from "../../components/Buttons/ButtonThin/ButtonThin";
 import MobileHeader from "../../components/MobileHeader/MobileHeader";
 import { useState } from "react";
 import { FileContainer } from "../SingleTopupPage/SingleTopupPage.style";
+import { useTranslation } from "react-i18next";
 
 function SingleTask() {
+  const { t } = useTranslation();
   const [file, setFile] = useState(undefined);
 
   return (
     <Container>
-      <H1 className={"desktop"}>Tasks</H1>
-      <MobileHeader title={"Tasks"} />
+      <H1 className={"desktop"}>{t("Tasks")}</H1>
+      <MobileHeader title={t("Tasks")} />
 
       <BackLink to="/tasks">
         <SvgBackArrow />
-        <span>Back to tasks</span>
+        <span>
+          {t("BackTo")} {t("Tasks").toLowerCase()}
+        </span>
       </BackLink>
       <TaskInfo>
         <TaskHeader>
           <TaskImage src={placeholderImg} />
-          <TaskTitle>Subscribe to the channel</TaskTitle>
+          <TaskTitle>{t("SubscribeTo")}</TaskTitle>
           <TaskIncome>+5 usd</TaskIncome>
         </TaskHeader>
         <TaskText>
@@ -49,12 +53,12 @@ function SingleTask() {
           <FileContainer>
             <FileInput
               accept={"image/*"}
-              placeholder={"Attach file"}
+              placeholder={t("Attach")}
               onChange={(value) => setFile(value)}
             />
             <span>{file ? file.name : ""}</span>
           </FileContainer>
-          <ButtonThin onClick={() => {}}>Complete</ButtonThin>
+          <ButtonThin onClick={() => {}}>{t("Complete")}</ButtonThin>
         </TaskButtons>
       </TaskInfo>
     </Container>

@@ -10,9 +10,9 @@ function TextInputBalance({
   balance,
 }) {
   return (
-    <Container iserror={iserror}>
+    <Container $iserror={iserror}>
       <Input
-        iserror={iserror}
+        $iserror={iserror}
         name={name}
         id={name}
         type={type}

@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import { Form } from "./ResetPage.style";
 import PasswordInput from "../../../components/Inputs/PasswordInput/PasswordInput";
 import ButtonWide from "../../../components/Buttons/ButtonWide/ButtonWide";
+import { useTranslation } from "react-i18next";
 
 const validate = (values) => {
   const errors = {};
@@ -21,10 +22,12 @@ const validate = (values) => {
 };
 
 function ResetPage() {
+  const { t } = useTranslation();
+
   return (
     <Page>
       <Container>
-        <Title>New password</Title>
+        <Title>{t("Reset.Title")}</Title>
         <Formik
           initialValues={{
             password: "",
@@ -47,18 +50,18 @@ function ResetPage() {
                   type={"password"}
                   name={"password"}
                   placeholder={"•••"}
-                  title={"Password"}
+                  title={t("Login.Password")}
                   iserror={errors.password ? 1 : 0}
                 />
                 <PasswordInput
                   type={"password"}
                   name={"passwordConfirm"}
                   placeholder={"•••"}
-                  title={"Confirm Password"}
+                  title={t("Register.ConfirmPass")}
                   iserror={errors.passwordConfirm ? 1 : 0}
                 />
 
-                <ButtonWide type="submit">Confirm</ButtonWide>
+                <ButtonWide type="submit">{t("Confirm")}</ButtonWide>
               </Form>
             );
           }}

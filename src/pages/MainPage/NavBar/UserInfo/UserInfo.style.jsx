@@ -18,6 +18,9 @@ export const UserImage = styled.img`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  object-position: center;
+  object-fit: cover;
   border-radius: 50%;
   background-color: ${(props) => props.theme.colors.grayEmpty};
 

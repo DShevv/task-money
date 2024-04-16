@@ -23,7 +23,7 @@ export const Container = styled.div`
   border-radius: 10px;
   border: solid 1px
     ${(props) =>
-      props.iserror ? props.theme.colors.error : props.theme.colors.grayLight};
+      props.$iserror ? props.theme.colors.error : props.theme.colors.grayLight};
 
   @media (max-width: 1024px) {
     width: 337px;
@@ -70,7 +70,7 @@ export const Input = styled.input`
 
     border-bottom: solid 1px
       ${(props) =>
-        props.iserror
+        props.$iserror
           ? props.theme.colors.error
           : props.theme.colors.grayLight};
   }

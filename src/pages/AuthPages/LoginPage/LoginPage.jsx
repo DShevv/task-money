@@ -16,13 +16,18 @@ import TextLink from "../../../components/Links/TextLink/TextLink";
 import ButtonWide from "../../../components/Buttons/ButtonWide/ButtonWide";
 import { Formik } from "formik";
 import Divider from "../../../components/Divider/Divider";
+import userStore from "../../../stores/user-store";
+import { useTranslation } from "react-i18next";
 
 const LoginPage = observer(() => {
   const { isAuthorized, login } = authStore;
+  const { getInfo } = userStore;
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isAuthorized) {
+      getInfo();
       navigate("/tasks");
     }
   }, [isAuthorized, navigate]);
@@ -31,8 +36,8 @@ const LoginPage = observer(() => {
     <Page>
       <Container>
         <div>
-          <Title>Welcome Back</Title>
-          <SubTitle>Please log in to continue</SubTitle>
+          <Title>{t("Login.Welcome")}</Title>
+          <SubTitle>{t("Login.LoginSubtitle")}</SubTitle>
         </div>
         <Formik
           initialValues={{
@@ -42,7 +47,7 @@ const LoginPage = observer(() => {
           }}
           onSubmit={(values) => {
             console.log(values);
-            login({ email: "test@example.com", password: "testPassword" });
+            login({ email: values.email, password: values.password });
           }}
         >
           <StyledForm>
@@ -50,24 +55,24 @@ const LoginPage = observer(() => {
               type={"email"}
               name={"email"}
               placeholder={"example@example.com"}
-              title={"Email Address"}
+              title={t("Login.Email")}
             />
             <TextInput
               type={"password"}
               name={"password"}
               placeholder={"•••"}
-              title={"Password"}
+              title={t("Login.Password")}
             />
             <Line>
-              <Checkbox title={"Remember me"} name={"remember"} />
-              <TextLink to="/forgot">Forgot Password?</TextLink>
+              <Checkbox title={t("Login.Remember")} name={"remember"} />
+              <TextLink to="/forgot">{t("Login.Forgot")}</TextLink>
             </Line>
-            <ButtonWide type="submit">Log In</ButtonWide>
+            <ButtonWide type="submit">{t("Login.Login")}</ButtonWide>
           </StyledForm>
         </Formik>
         <Divider />
 
-        <TextLink to="/register">No account yet? Sign Up</TextLink>
+        <TextLink to="/register">{t("Login.NoAccount")}</TextLink>
       </Container>
     </Page>
   );

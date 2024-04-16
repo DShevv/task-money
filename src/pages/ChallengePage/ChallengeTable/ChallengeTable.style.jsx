@@ -58,7 +58,7 @@ export const ProgressBar = styled.div`
   &::after {
     position: absolute;
     content: "";
-    width: ${(props) => `${props.level}%`};
+    width: ${(props) => `${props.$level}%`};
     height: 2px;
     top: 0;
     left: 0;

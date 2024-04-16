@@ -1,15 +1,16 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 import { makePersistable, stopPersisting } from "mobx-persist-store";
 import AuthService from "../services/AuthService";
 
 class AuthStore {
   isAuthorized = false;
+  token = null;
 
   constructor() {
     makeAutoObservable(this);
     makePersistable(this, {
       name: "AuthStore",
-      properties: ["isAuthorized"],
+      properties: ["isAuthorized", "token"],
       storage: window.localStorage,
     });
   }
@@ -20,24 +21,37 @@ class AuthStore {
 
   login = async (data) => {
     try {
-      /*  const res = await AuthService.login(data.email, data.password);
+      const res = await AuthService.login(data.email, data.password);
 
       if (res.status !== 200) {
         throw new Error(res);
       }
 
-      const resData = await res.json(); */
+      console.log(res);
+      localStorage.setItem("token", `Bearer ${res.data.access_token}`);
+      runInAction(() => {
+        this.token = `${res.data.token_type} ${res.data.access_token}`;
 
-      console.log(data);
-
-      this.isAuthorized = true;
+        this.isAuthorized = true;
+      });
     } catch (error) {
       console.log(error);
     }
   };
 
-  register = (data) => {
-    AuthService.register(data.email, data.password);
+  register = async (data) => {
+    try {
+      const res = await AuthService.register(
+        data.name,
+        data.email,
+        data.password,
+        data.invite_code
+      );
+      console.log(res);
+      return res.status;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   forgot = (data) => {
@@ -46,6 +60,8 @@ class AuthStore {
 
   logout = () => {
     this.isAuthorized = false;
+    this.token = null;
+    localStorage.removeItem("token");
   };
 }
 

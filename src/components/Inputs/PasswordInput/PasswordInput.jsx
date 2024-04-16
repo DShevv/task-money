@@ -10,15 +10,15 @@ function PasswordInput({ iserror, type, title, name, placeholder }) {
 
   return (
     <Container>
-      <Title iserror={iserror}>{title}</Title>
+      <Title $iserror={iserror}>{title}</Title>
       <Input
-        iserror={iserror}
+        $iserror={iserror}
         name={name}
         id={name}
         type={isActive ? "text" : type}
         placeholder={isActive ? "123" : placeholder}
       />
-      <Eye isactive={isActive ? 1 : 0} onClick={toggleActive}>
+      <Eye $isactive={isActive ? 1 : 0} onClick={toggleActive}>
         <svg
           width="20"
           height="12"

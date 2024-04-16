@@ -13,8 +13,11 @@ import {
 import LinkButtonMedium from "../../components/Links/LinkButtonMedium/LinkButtonMedium";
 import SelectSolid from "../../components/Selects/SelectSolid/SelectSolid";
 import HistoryTable from "./HistoryTable/HistoryTable";
+import { useTranslation } from "react-i18next";
 
 function WalletPage() {
+  const { t } = useTranslation();
+
   const [filters, setFilters] = useState({
     status: undefined,
     method: undefined,
@@ -28,32 +31,34 @@ function WalletPage() {
 
   return (
     <Container style={{ gap: "16px" }}>
-      <H1 className={"desktop"}>Wallet</H1>
-      <MobileHeader title={"Wallet"} />
+      <H1 className={"desktop"}>{t("Wallet")}</H1>
+      <MobileHeader title={t("Wallet")} />
       <Controls>
         <Balance>
-          <span>Your balance:</span>
+          <span>{t("YourBalance")}:</span>
           <span>1000 USD</span>
         </Balance>
         <ControlsButtons>
-          <LinkButtonMedium to={"topup"}>Top up</LinkButtonMedium>
-          <LinkButtonMedium to={"withdraw"}>Withdraw</LinkButtonMedium>
+          <LinkButtonMedium to={"topup"}>{t("Topup")}</LinkButtonMedium>
+          <LinkButtonMedium to={"withdraw"}>{t("Withdraw")}</LinkButtonMedium>
         </ControlsButtons>
       </Controls>
       <HistoryHeader>
-        <HistoryTitle>Transaction history</HistoryTitle>
+        <HistoryTitle>
+          {t("Transaction")} {t("History").toLowerCase()}
+        </HistoryTitle>
         <HistoryFilters className="desktop">
           <SelectSolid
-            items={["Success", "Pending", "Error"]}
+            items={[t("Success"), t("Pending"), t("Error")]}
             value={filters.status}
-            label={"Status"}
+            label={t("Status")}
             style={{ borderRadius: "0", maxWidth: "180px" }}
             onChange={createOnChange("status")}
           />
           <SelectSolid
             items={["Visa", "PayPal", "MasterCard"]}
             value={filters.method}
-            label={"Method"}
+            label={t("Method")}
             style={{ borderRadius: "0", maxWidth: "180px" }}
             onChange={createOnChange("method")}
           />

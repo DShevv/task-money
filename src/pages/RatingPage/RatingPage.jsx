@@ -19,16 +19,18 @@ import {
 } from "./RatingPage.style";
 import placeholderImage from "../../assets/placeholders/gray.png";
 import Divider from "../../components/Divider/Divider";
+import { useTranslation } from "react-i18next";
 
 function RatingPage() {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState("No verified");
 
   return (
     <Container>
-      <H1 className={"desktop"}>Seasonal rating</H1>
-      <MobileHeader title={"Seasonal rating"} className="rating" />
+      <H1 className={"desktop"}>{t("Seasonal")}</H1>
+      <MobileHeader title={t("Seasonal")} className="rating" />
       <Radio
-        items={["No verified", "Verified", "Partners"]}
+        items={[t("NoVer"), t("Ver"), t("Partners")]}
         value={filter}
         name={"userType"}
         onChange={(value) => setFilter(value)}
@@ -36,16 +38,13 @@ function RatingPage() {
       <RatingSection>
         <Caption>
           <Title>TOP - 5</Title>
-          <Text>
-            At the end of the season, users who are in the top 5 ratings in
-            their league receive a cash reward.
-          </Text>
+          <Text>{t("EndSeason")}</Text>
         </Caption>
         <TopContainer>
           <TopItem>
             <Rank>1</Rank>
             <Image src={placeholderImage} />
-            <ItemRank>1 Rank</ItemRank>
+            <ItemRank>1 {t("Rank")}</ItemRank>
             <Username>Username</Username>
             <Score>Score</Score>
           </TopItem>
@@ -82,7 +81,7 @@ function RatingPage() {
       <Divider style={{ height: "2px" }} className={"desktop"} />
       <RatingSection>
         <Caption>
-          <SubTitle>Your position rating 64</SubTitle>
+          <SubTitle>{t("YourPos")} 64</SubTitle>
         </Caption>
         <TopContainer className="middle">
           <TopItem>
@@ -97,7 +96,7 @@ function RatingPage() {
       <Divider style={{ height: "2px" }} className={"desktop"} />
       <RatingSection>
         <Caption>
-          <SubTitle>3 last places</SubTitle>
+          <SubTitle>3 {t("LastPos")}</SubTitle>
         </Caption>
         <TopContainer>
           <TopItem>

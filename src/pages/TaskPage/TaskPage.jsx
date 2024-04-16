@@ -11,8 +11,10 @@ import SelectSolid from "../../components/Selects/SelectSolid/SelectSolid";
 import Task from "./Task/Task";
 import placeholderImg from "../../assets/placeholders/white.png";
 import MobileHeader from "../../components/MobileHeader/MobileHeader";
+import { useTranslation } from "react-i18next";
 
 function TaskPage() {
+  const { t } = useTranslation();
   const [filters, setFilters] = useState({
     category: "New",
     type: undefined,
@@ -27,24 +29,24 @@ function TaskPage() {
 
   return (
     <Container>
-      <H1 className={"desktop"}>Tasks</H1>
-      <MobileHeader title={"Tasks"} />
+      <H1 className={"desktop"}>{t("Tasks")}</H1>
+      <MobileHeader title={t("Tasks")} />
       <Filters>
         <Radio
-          items={["New", "Taken", "Completed"]}
+          items={[t("New"), t("Taken"), t("Completed")]}
           name="category"
           value={filters.category}
           onChange={createOnChange("category")}
         />
         <SelectsContainer>
           <SelectSolid
-            items={["Subscribe", "Like", "Repost"]}
-            label="Type"
+            items={[t("Subscribe"), t("Like"), t("Repost")]}
+            label={"Type"}
             style={{ width: "125px" }}
           />
           <SelectSolid
-            items={["Social network", "Youtube"]}
-            value={"Social network"}
+            items={[t("SocialNetwork"), t("Youtube")]}
+            value={"SocialNetwork"}
             style={{ width: "190px" }}
           />
         </SelectsContainer>
@@ -53,31 +55,31 @@ function TaskPage() {
         <Task
           to={"1"}
           image={placeholderImg}
-          title={"Subscribe to the channel"}
+          title={t("SubscribeTo")}
           text={"+5 usd"}
         />
         <Task
           to={"1"}
           image={placeholderImg}
-          title={"Subscribe to the channel"}
+          title={t("SubscribeTo")}
           text={"+5 usd"}
         />
         <Task
           to={"1"}
           image={placeholderImg}
-          title={"Subscribe to the channel"}
+          title={t("SubscribeTo")}
           text={"+5 usd"}
         />
         <Task
           to={"1"}
           image={placeholderImg}
-          title={"Subscribe to the channel"}
+          title={t("SubscribeTo")}
           text={"+5 usd"}
         />
         <Task
           to={"1"}
           image={placeholderImg}
-          title={"Subscribe to the channel"}
+          title={t("SubscribeTo")}
           text={"+5 usd"}
         />
       </TasksContainer>

@@ -12,7 +12,7 @@ export const Title = styled.div`
   line-height: 140%;
 
   color: ${(props) =>
-    props.iserror ? props.theme.colors.error : props.theme.colors.text};
+    props.$iserror ? props.theme.colors.error : props.theme.colors.text};
 `;
 
 export const Input = styled(Field)`
@@ -31,7 +31,7 @@ export const Input = styled(Field)`
   border-radius: 10px;
   border: solid 1px
     ${(props) =>
-      props.iserror ? props.theme.colors.error : props.theme.colors.grayLight};
+      props.$iserror ? props.theme.colors.error : props.theme.colors.grayLight};
 
   &::placeholder {
     color: ${(props) => props.theme.colors.textGray};
@@ -46,5 +46,7 @@ export const Eye = styled.div`
   cursor: pointer;
   user-select: none;
   color: ${(props) =>
-    props.isactive ? props.theme.colors.primary : props.theme.colors.grayLight};
+    props.$isactive
+      ? props.theme.colors.primary
+      : props.theme.colors.grayLight};
 `;

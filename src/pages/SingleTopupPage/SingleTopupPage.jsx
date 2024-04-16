@@ -12,8 +12,11 @@ import { SvgBackArrow } from "../../assets/icons/svgs";
 import { useState } from "react";
 import FileInput from "../../components/Inputs/FileInput/FileInput";
 import ButtonThin from "../../components/Buttons/ButtonThin/ButtonThin";
+import { useTranslation } from "react-i18next";
 
 function SingleTopupPage() {
+  const { t } = useTranslation();
+
   const [file, setFile] = useState(undefined);
   const [errors, setError] = useState({ method: 0, amount: 0 });
 
@@ -23,20 +26,22 @@ function SingleTopupPage() {
 
   return (
     <StyledContainer>
-      <H1 className="desktop">Top up</H1>
-      <MobileHeader title={"Top up"} />
+      <H1 className="desktop">{t("Topup")}</H1>
+      <MobileHeader title={t("Topup")} />
       <BackLink to={"/wallet"}>
         <SvgBackArrow />
-        <span>Back to wallet</span>
+        <span>
+          {t("BackTo")} {t("Wallet").toLowerCase()}
+        </span>
       </BackLink>
       <TopupInfo>
         <TopupHeader>
           <HeaderItem>
-            <div>Payment details:</div>
+            <div>{t("PaymentDetails")}:</div>
             <div>123456789012345678234567</div>
           </HeaderItem>
           <HeaderItem>
-            <div>Amount to be paid:</div>
+            <div>{t("AmountToBePaid")}:</div>
             <div>100 USD</div>
           </HeaderItem>
         </TopupHeader>
@@ -44,12 +49,12 @@ function SingleTopupPage() {
           <FileContainer>
             <FileInput
               accept={"image/*"}
-              placeholder={"Attach file"}
+              placeholder={t("Attach")}
               onChange={(value) => setFile(value)}
             />
-            <span>{file ? file.name : "Attach the payment receipt"}</span>
+            <span>{file ? file.name : t("PaymentReceipt")}</span>
           </FileContainer>
-          <ButtonThin onClick={() => {}}>Send</ButtonThin>
+          <ButtonThin onClick={() => {}}>{t("Send")}</ButtonThin>
         </TaskButtons>
       </TopupInfo>
     </StyledContainer>

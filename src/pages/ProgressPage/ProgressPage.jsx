@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import MobileHeader from "../../components/MobileHeader/MobileHeader";
 import H1 from "../../components/Typography/H1/H1";
 import {
@@ -9,10 +10,12 @@ import {
 import ProgressTable from "./ProgressTable/ProgressTable";
 
 function ProgressPage() {
+  const { t } = useTranslation();
+
   return (
     <Container>
-      <H1 className={"desktop"}>Progress</H1>
-      <MobileHeader title={"Progress"} />
+      <H1 className={"desktop"}>{t("Progress")}</H1>
+      <MobileHeader title={t("Progress")} />
       <ProgressInfo>
         <InfoItem>
           <span>Status account:</span>

@@ -11,9 +11,9 @@ function TextInputMedium({
 }) {
   return (
     <Container>
-      {title && <Title iserror={iserror}>{title}</Title>}
+      {title && <Title $iserror={iserror}>{title}</Title>}
       <Input
-        iserror={iserror}
+        $iserror={iserror}
         name={name}
         id={name}
         type={type}

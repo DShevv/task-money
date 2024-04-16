@@ -12,10 +12,12 @@ import {
 import TextInput from "../../../components/Inputs/TextInput/TextInput";
 import ButtonWide from "../../../components/Buttons/ButtonWide/ButtonWide";
 import { Formik } from "formik";
+import { useTranslation } from "react-i18next";
 
 const ForgotPage = observer(() => {
   const { isAuthorized } = authStore;
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (isAuthorized) {
@@ -27,11 +29,8 @@ const ForgotPage = observer(() => {
     <Page>
       <Container>
         <div>
-          <Title>Forgotten your password?</Title>
-          <SubTitle>
-            There is nothing to worry about, we&apos;ll send you a message to
-            help you reset your password.
-          </SubTitle>
+          <Title>{t("Forgot.Title")}</Title>
+          <SubTitle>{t("Forgot.SubTitle")}</SubTitle>
         </div>
         <Formik
           initialValues={{
@@ -46,11 +45,11 @@ const ForgotPage = observer(() => {
             <TextInput
               type={"email"}
               name={"email"}
-              placeholder={"Enter personal or work email address"}
-              title={"Email Address"}
+              placeholder={t("Forgot.EmailPlaceholder")}
+              title={t("Login.Email")}
             />
 
-            <ButtonWide type="submit">Send Reset Link</ButtonWide>
+            <ButtonWide type="submit">{t("Forgot.Send")}</ButtonWide>
           </StyledForm>
         </Formik>
       </Container>

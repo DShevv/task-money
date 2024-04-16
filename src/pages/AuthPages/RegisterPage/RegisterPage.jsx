@@ -7,6 +7,10 @@ import PasswordInput from "../../../components/Inputs/PasswordInput/PasswordInpu
 import ButtonWide from "../../../components/Buttons/ButtonWide/ButtonWide";
 import Divider from "../../../components/Divider/Divider";
 import TextLink from "../../../components/Links/TextLink/TextLink";
+import { observer } from "mobx-react-lite";
+import authStore from "../../../stores/auth-store";
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const validate = (values) => {
   const errors = {};
@@ -40,11 +44,15 @@ const validate = (values) => {
   return errors;
 };
 
-function RegisterPage() {
+export const RegisterPage = observer(() => {
+  const { register } = authStore;
+  const navigate = useNavigate();
+  const { t } = useTranslation();
+
   return (
     <Page>
       <Container>
-        <Title>Sing Up</Title>
+        <Title>{t("Register.Title")}</Title>
         <Formik
           initialValues={{
             name: "",
@@ -54,9 +62,18 @@ function RegisterPage() {
             invite: "",
             privacy: false,
           }}
-          onSubmit={(values) => {
-            console.log(values);
-            // login({ email: "test@example.com", password: "testPassword" });
+          onSubmit={async (values) => {
+            console.log(values.name);
+            const res = await register({
+              name: values.name,
+              email: values.email,
+              password: values.password,
+              invite_code: values.invite,
+            });
+            console.log(res);
+            if (res === 200) {
+              navigate("/login");
+            }
           }}
           validate={validate}
           validateOnChange={false}
@@ -71,51 +88,49 @@ function RegisterPage() {
                   type={"text"}
                   name={"name"}
                   placeholder={"John"}
-                  title={"Name"}
+                  title={t("Register.Name")}
                   iserror={errors.name ? 1 : 0}
                 />
                 <TextInput
                   type={"email"}
                   name={"email"}
                   placeholder={"example@example.com"}
-                  title={"Email Address"}
+                  title={t("Login.Email")}
                   iserror={errors.email ? 1 : 0}
                 />
                 <PasswordInput
                   type={"password"}
                   name={"password"}
                   placeholder={"•••"}
-                  title={"Password"}
+                  title={t("Login.Password")}
                   iserror={errors.password ? 1 : 0}
                 />
                 <PasswordInput
                   type={"password"}
                   name={"passwordConfirm"}
                   placeholder={"•••"}
-                  title={"Confirm Password"}
+                  title={t("Register.ConfirmPass")}
                   iserror={errors.passwordConfirm ? 1 : 0}
                 />
                 <TextInput
                   type={"text"}
                   name={"invite"}
                   placeholder={"1234"}
-                  title={"Invite Code"}
+                  title={t("Register.Invite")}
                 />
                 <Checkbox
-                  title={"Accept privacy policy"}
+                  title={t("Register.Policy")}
                   name={"privacy"}
                   required={true}
                 />
-                <ButtonWide type="submit">Register</ButtonWide>
+                <ButtonWide type="submit">{t("Register.Register")}</ButtonWide>
               </Form>
             );
           }}
         </Formik>
         <Divider />
-        <TextLink to="/login">Already have an account?</TextLink>
+        <TextLink to="/login">{t("Register.Have")}</TextLink>
       </Container>
     </Page>
   );
-}
-
-export default RegisterPage;
+});

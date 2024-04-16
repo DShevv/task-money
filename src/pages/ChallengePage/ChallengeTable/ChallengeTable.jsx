@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import {
   Container,
   Item,
@@ -10,6 +11,8 @@ import {
 } from "./ChallengeTable.style";
 
 function ChallengeTable({ items, ...other }) {
+  const { t } = useTranslation();
+
   return (
     <Container {...other}>
       {items.map((elem, index) => (
@@ -19,10 +22,10 @@ function ChallengeTable({ items, ...other }) {
             <ItemRevenue>{elem.revenue}</ItemRevenue>
           </ItemHeader>
           <ItemTitle>{elem.text}</ItemTitle>
-          <ProgressBar level={(elem.count / elem.goal) * 100} />
+          <ProgressBar $level={(elem.count / elem.goal) * 100} />
           <Progress className={elem.count === elem.goal ? "active" : ""}>
             {elem.count === elem.goal
-              ? `Completed`
+              ? t("Completed")
               : `${elem.count}/${elem.goal}`}
           </Progress>
         </Item>

@@ -10,14 +10,16 @@ import {
 import { useState } from "react";
 import ChallengeTable from "./ChallengeTable/ChallengeTable";
 import placeholderImage from "../../assets/placeholders/gray.png";
+import { useTranslation } from "react-i18next";
 
 function ChallengePage() {
+  const { t } = useTranslation();
   const [filter, setFilter] = useState("Dally");
 
   return (
     <Container>
-      <H1 className={"desktop"}>Challenge</H1>
-      <MobileHeader title={"Challenge"} />
+      <H1 className={"desktop"}>{t("Challenge")}</H1>
+      <MobileHeader title={t("Challenge")} />
       <Radio
         items={["Dally", "Weekly", "Monthly"]}
         name={"period"}
@@ -27,8 +29,8 @@ function ChallengePage() {
       <BonusContainer>
         <BonusValue>+15%</BonusValue>
         <span>
-          Your Total <br />
-          Extra Daily Bonus
+          {t("ChallengePage.Total")} <br />
+          {t("ChallengePage.Extra")}
         </span>
       </BonusContainer>
       <Caption>

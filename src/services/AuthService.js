@@ -3,10 +3,27 @@ import api from "../http";
 export default class AuthService {
   static async login(email, password) {
     return api.post(
-      "/login",
+      "/token",
       {
-        email: email,
+        username: email,
         password: password,
+      },
+      {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      }
+    );
+  }
+
+  static async register(name, email, password, invite_code) {
+    return api.post(
+      "/register",
+      {
+        name,
+        email,
+        password,
+        invite_code,
       },
       {
         headers: {
@@ -14,13 +31,6 @@ export default class AuthService {
         },
       }
     );
-  }
-
-  static async register(email, password) {
-    return api.post("/register", {
-      email: email,
-      password: password,
-    });
   }
 
   static async resetPassword(email) {

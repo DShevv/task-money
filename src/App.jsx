@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ThemeProvider } from "styled-components";
 import { ThemeDark } from "./theme/theme-dark";
 import {
@@ -9,7 +10,7 @@ import {
 } from "react-router-dom";
 import MainPage from "./pages/MainPage/MainPage";
 import LoginPage from "./pages/AuthPages/LoginPage/LoginPage";
-import RegisterPage from "./pages/AuthPages/RegisterPage/RegisterPage";
+import { RegisterPage } from "./pages/AuthPages/RegisterPage/RegisterPage";
 import ForgotPage from "./pages/AuthPages/ForgotPage/ForgotPage";
 import ResetPage from "./pages/AuthPages/ResetPage/ResetPage";
 import TaskPage from "./pages/TaskPage/TaskPage";
@@ -25,12 +26,17 @@ import ProgressPage from "./pages/ProgressPage/ProgressPage";
 import SettingsPage from "./pages/SettingsPage/SettingsPage";
 import ChallengePage from "./pages/ChallengePage/ChallengePage";
 import RatingPage from "./pages/RatingPage/RatingPage";
+import userStore from "./stores/user-store";
 
 const App = observer(() => {
   const { stopStore } = authStore;
+  const { stopUserStore } = userStore;
 
   useEffect(() => {
-    return () => stopStore();
+    return () => {
+      stopStore();
+      stopUserStore();
+    };
   }, []);
 
   const router = createBrowserRouter(
