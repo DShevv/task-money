@@ -15,10 +15,6 @@ function SelectSolid({ items, onChange, value, className, label, ...other }) {
     setIsActive(false);
   });
 
-  useEffect(() => {
-    onChange && onChange(current);
-  }, [current]);
-
   const toggle = () => {
     setIsActive(!isActive);
   };
@@ -26,6 +22,7 @@ function SelectSolid({ items, onChange, value, className, label, ...other }) {
   const createItemClick = (value) => {
     return () => {
       setCurrent(value);
+      onChange && onChange(value);
     };
   };
 
