@@ -46,14 +46,12 @@ function SelectSolid({ items, onChange, value, label, className, ...other }) {
         <PopUpItem key={"all"} onClick={clearCurrent()}>
           {t("All")}
         </PopUpItem>
-        {items.map(
-          (elem) =>
-            elem !== current && (
-              <PopUpItem key={elem} onClick={createItemClick(elem)}>
-                {t(elem)}
-              </PopUpItem>
-            )
-        )}
+
+        {items.map((elem) => (
+          <PopUpItem key={elem} onClick={createItemClick(elem)}>
+            {t(elem)}
+          </PopUpItem>
+        ))}
       </PopUp>
     </Container>
   );
