@@ -13,6 +13,7 @@ function MobileHeader({ title, className, ...other }) {
   const chooseLanguage = (value) => {
     i18n.changeLanguage(value);
     setSelectedLanguage(value);
+    localStorage.setItem("lang", value);
   };
 
   return window.screen.width <= 1024 ? (
@@ -22,7 +23,7 @@ function MobileHeader({ title, className, ...other }) {
       <Controls>
         <SelectSolidLang
           className={"mobile lang"}
-          items={["En", "De"]}
+          items={["Ru", "En", "De"]}
           value={selectedLanguage}
           onChange={chooseLanguage}
           style={{ marginTop: "0px" }}

@@ -1,6 +1,8 @@
 import { makeAutoObservable, runInAction } from "mobx";
 import { makePersistable, stopPersisting } from "mobx-persist-store";
 import AuthService from "../services/AuthService";
+import toast from "react-hot-toast";
+import Notification from "../components/Notification/Notification";
 
 class AuthStore {
   isAuthorized = false;
@@ -22,12 +24,18 @@ class AuthStore {
   login = async (data) => {
     try {
       const res = await AuthService.login(data.email, data.password);
-
+      console.log(res);
       if (res.status !== 200) {
+        toast.custom((toa) => (
+          <Notification
+            toa={toa}
+            text={[res.response.data.detail]}
+            status={res.response.status}
+          />
+        ));
         throw new Error(res);
       }
 
-      console.log(res);
       localStorage.setItem("token", `Bearer ${res.data.access_token}`);
       runInAction(() => {
         this.token = `${res.data.token_type} ${res.data.access_token}`;
@@ -35,7 +43,7 @@ class AuthStore {
         this.isAuthorized = true;
       });
     } catch (error) {
-      console.log(error);
+      console.log(error.data);
     }
   };
 
@@ -47,6 +55,18 @@ class AuthStore {
         data.password,
         data.invite_code
       );
+
+      if (res.status !== 200) {
+        toast.custom((toa) => (
+          <Notification
+            toa={toa}
+            text={[res.response.data.detail]}
+            status={res.response.status}
+          />
+        ));
+        throw new Error(res);
+      }
+
       console.log(res);
       return res.status;
     } catch (error) {

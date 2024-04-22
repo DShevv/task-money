@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { Container, Input, Balance } from "./TextInputBalance.style";
 
 function TextInputBalance({
@@ -9,6 +10,8 @@ function TextInputBalance({
   onChange,
   balance,
 }) {
+  const { t } = useTranslation();
+
   return (
     <Container $iserror={iserror}>
       <Input
@@ -22,7 +25,9 @@ function TextInputBalance({
           onChange(e.target.value);
         }}
       />
-      <Balance>Balance: {balance}</Balance>
+      <Balance>
+        {t("Balance")}: {balance}
+      </Balance>
     </Container>
   );
 }

@@ -68,7 +68,8 @@ export const Input = styled.input`
     width: 100%;
     padding: 12px 16px;
 
-    border-bottom: solid 1px
+    border-radius: 10px;
+    border: solid 1px
       ${(props) =>
         props.$iserror
           ? props.theme.colors.error

@@ -5,6 +5,7 @@ import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { Container, Content, HeaderBlock } from "./MainPage.style";
 import NavBar from "./NavBar/NavBar";
 import userStore from "../../stores/user-store";
+import { Toaster } from "react-hot-toast";
 
 const MainPage = observer(() => {
   const { isAuthorized } = authStore;
@@ -30,6 +31,7 @@ const MainPage = observer(() => {
       <Content>
         <HeaderBlock />
         <Outlet />
+        <Toaster position="bottom-center" reverseOrder={false} />
       </Content>
     </Container>
   );

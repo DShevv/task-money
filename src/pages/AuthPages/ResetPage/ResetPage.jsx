@@ -4,6 +4,7 @@ import { Form } from "./ResetPage.style";
 import PasswordInput from "../../../components/Inputs/PasswordInput/PasswordInput";
 import ButtonWide from "../../../components/Buttons/ButtonWide/ButtonWide";
 import { useTranslation } from "react-i18next";
+import { Toaster } from "react-hot-toast";
 
 const validate = (values) => {
   const errors = {};
@@ -67,6 +68,7 @@ function ResetPage() {
           }}
         </Formik>
       </Container>
+      <Toaster position="bottom-center" reverseOrder={false} />
     </Page>
   );
 }

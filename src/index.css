@@ -55,6 +55,14 @@
   font-weight: 200;
 }
 
+body {
+  background: linear-gradient(
+    180deg,
+    rgba(41, 41, 41, 1) 0%,
+    rgba(38, 37, 37, 1) 100%
+  );
+}
+
 @media (max-width: 1024px) {
   li.desktop {
     display: none;

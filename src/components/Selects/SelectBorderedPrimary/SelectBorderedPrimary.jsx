@@ -4,28 +4,25 @@ import {
   PopUp,
   PopUpItem,
 } from "./SelectBorderedPrimary.style";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import useOutsideClick from "../../../hooks/useOutsideClick";
 import { SvgOpenArrow } from "../../../assets/icons/svgs";
+import { useTranslation } from "react-i18next";
 
 function SelectBorderedPrimary({
   items,
   onChange,
   value,
   className,
-  label,
   ...other
 }) {
+  const { t } = useTranslation();
   const [isActive, setIsActive] = useState(false);
-  const [current, setCurrent] = useState(value === undefined ? label : value);
+  const [current, setCurrent] = useState(value);
   const ref = useRef(null);
   useOutsideClick(ref, () => {
     setIsActive(false);
   });
-
-  useEffect(() => {
-    onChange && onChange(current);
-  }, [current]);
 
   const toggle = () => {
     setIsActive(!isActive);
@@ -34,6 +31,7 @@ function SelectBorderedPrimary({
   const createItemClick = (value) => {
     return () => {
       setCurrent(value);
+      onChange && onChange(value);
     };
   };
 
@@ -44,7 +42,7 @@ function SelectBorderedPrimary({
       ref={ref}
       {...other}
     >
-      {current}
+      {t(current)}
       <StyledArrow>
         <SvgOpenArrow />
       </StyledArrow>

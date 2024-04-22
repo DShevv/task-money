@@ -18,15 +18,15 @@ function ProgressPage() {
       <MobileHeader title={t("Progress")} />
       <ProgressInfo>
         <InfoItem>
-          <span>Status account:</span>
-          <span>Verified</span>
+          <span>{t("StatusAcc")}:</span>
+          <span>{t("Verified")}</span>
         </InfoItem>
         <InfoItem>
-          <span>Balance:</span>
+          <span>{t("Balance")}:</span>
           <span>100 USD</span>
         </InfoItem>
         <InfoItem>
-          <span>Completed task:</span>
+          <span>{t("CompletedTask")}:</span>
           <span>100</span>
         </InfoItem>
       </ProgressInfo>

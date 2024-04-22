@@ -65,7 +65,7 @@ function NavBar() {
       </LinksList>
       <SelectBordered
         className="desktop"
-        items={["En", "De"]}
+        items={["Ru", "En", "De"]}
         style={{ marginTop: "16px" }}
         value={selectedLanguage}
         onChange={chooseLanguage}

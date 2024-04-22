@@ -20,6 +20,8 @@ import { useEffect, useState } from "react";
 import { FileContainer } from "../SingleTopupPage/SingleTopupPage.style";
 import { useTranslation } from "react-i18next";
 import TaskService from "../../services/TaskService";
+import toast from "react-hot-toast";
+import Notification from "../../components/Notification/Notification";
 
 function SingleTask() {
   const { t } = useTranslation();
@@ -28,6 +30,15 @@ function SingleTask() {
 
   const fetchTasks = async () => {
     const res = await TaskService.getTask(1);
+    if (res.status !== 200) {
+      toast.custom((toa) => (
+        <Notification
+          toa={toa}
+          text={[res.response.data.detail]}
+          status={res.response.status}
+        />
+      ));
+    }
     setTask(res.data);
   };
 

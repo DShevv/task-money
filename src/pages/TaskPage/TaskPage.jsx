@@ -13,6 +13,9 @@ import placeholderImg from "../../assets/placeholders/white.png";
 import MobileHeader from "../../components/MobileHeader/MobileHeader";
 import { useTranslation } from "react-i18next";
 import TaskService from "../../services/TaskService";
+import i18n from "../../i18n";
+import toast from "react-hot-toast";
+import Notification from "../../components/Notification/Notification";
 
 function TaskPage() {
   const { t } = useTranslation();
@@ -33,6 +36,17 @@ function TaskPage() {
 
   const fetchTasks = async () => {
     const res = await TaskService.getAllTasks(1, filters.target, filters.type);
+
+    if (res.status !== 200) {
+      toast.custom((toa) => (
+        <Notification
+          toa={toa}
+          text={[res.response.data.detail]}
+          status={res.response.status}
+        />
+      ));
+    }
+
     setTasks(res.data);
   };
 
@@ -48,21 +62,23 @@ function TaskPage() {
       <MobileHeader title={t("Tasks")} />
       <Filters>
         <Radio
-          items={[t("New"), t("Taken"), t("Completed")]}
+          items={["New", "Taken", "Completed"]}
           name="category"
           value={filters.category}
           onChange={createOnChange("category")}
         />
         <SelectsContainer>
           <SelectSolid
-            items={[t("Subscribe"), t("Like"), t("Repost")]}
-            label={"Type"}
-            style={{ width: "125px" }}
+            items={["Subscribe", "Like", "Repost"]}
+            value={"Type"}
+            style={
+              i18n.language !== "Ru" ? { width: "125px" } : { width: "210px" }
+            }
             onChange={createOnChange("type")}
           />
           <SelectSolid
             items={["Facebook", "Youtube"]}
-            label={"SocialNetwork"}
+            value={"SocialNetwork"}
             style={{ width: "190px" }}
             onChange={createOnChange("target")}
           />

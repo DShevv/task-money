@@ -13,6 +13,7 @@ import TextInput from "../../../components/Inputs/TextInput/TextInput";
 import ButtonWide from "../../../components/Buttons/ButtonWide/ButtonWide";
 import { Formik } from "formik";
 import { useTranslation } from "react-i18next";
+import { Toaster } from "react-hot-toast";
 
 const ForgotPage = observer(() => {
   const { isAuthorized } = authStore;
@@ -53,6 +54,7 @@ const ForgotPage = observer(() => {
           </StyledForm>
         </Formik>
       </Container>
+      <Toaster position="bottom-center" reverseOrder={false} />
     </Page>
   );
 });

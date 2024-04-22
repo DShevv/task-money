@@ -14,7 +14,7 @@ export const Container = styled.aside`
     width: 100%;
     height: 68px;
     bottom: 0;
-    padding: 8px 16px;
+    padding: 8px 0px;
     border-radius: 20px;
   }
 `;
@@ -32,7 +32,7 @@ export const LinksList = styled.ul`
   }
 
   @media (max-width: 480px) {
-    gap: 4px;
-    justify-content: space-between;
+    gap: 2px;
+    justify-content: space-evenly;
   }
 `;

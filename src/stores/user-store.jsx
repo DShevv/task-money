@@ -2,6 +2,8 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { makePersistable, stopPersisting } from "mobx-persist-store";
 import UserService from "../services/UserService";
 import authStore from "./auth-store";
+import toast from "react-hot-toast";
+import Notification from "../components/Notification/Notification";
 
 class UserStore {
   user = {
@@ -37,6 +39,13 @@ class UserStore {
       }
 
       if (res.response && res.response.status !== 200) {
+        toast.custom((toa) => (
+          <Notification
+            toa={toa}
+            text={[res.response.data.detail]}
+            status={res.response.status}
+          />
+        ));
         throw new Error(res);
       }
 
@@ -68,6 +77,13 @@ class UserStore {
       }
 
       if (res.response.status !== 200) {
+        toast.custom((toa) => (
+          <Notification
+            toa={toa}
+            text={[res.response.data.detail]}
+            status={res.response.status}
+          />
+        ));
         throw new Error(res);
       }
 
@@ -82,7 +98,19 @@ class UserStore {
     try {
       const res = await UserService.removePhoto();
 
+      if (res.response.status === 401) {
+        this.logout();
+        return;
+      }
+
       if (res.response.status !== 200) {
+        toast.custom((toa) => (
+          <Notification
+            toa={toa}
+            text={[res.response.data.detail]}
+            status={res.response.status}
+          />
+        ));
         throw new Error(res);
       }
 
@@ -90,10 +118,6 @@ class UserStore {
       console.log(res);
     } catch (error) {
       console.log(error);
-
-      if (error.status === 401) {
-        this.logout();
-      }
     }
   };
 

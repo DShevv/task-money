@@ -29,7 +29,7 @@
   },
   "Confirm": "Bestätigen",
   "Tasks": "Aufgaben",
-  "Challenge": "Herausforderung",
+  "Challenge": "Challenge",
   "Wallet": "Brieftasche",
   "Rating": "Bewertung",
   "Progress": "Fortschritt",
@@ -97,5 +97,10 @@
   "LogOut": "Ausloggen",
   "SuccSave": "Erfolgreich gespeichert",
   "SettSave": "Ihre Profil-Einstellungen wurden gespeichert",
-  "OldPass": "Altes Passwort"
+  "OldPass": "Altes Passwort",
+  "Min": "Min",
+  "Max": "Max",
+  "TrHistory": "Verlauf der Transaktionen",
+  "UploadPhoto": "Foto hochladen",
+  "Verified": "Verifiziert"
 }

@@ -1,15 +1,13 @@
 import { StyledArrow, Container, PopUp, PopUpItem } from "./SelectSolid.style";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import useOutsideClick from "../../../hooks/useOutsideClick";
 import { SvgOpenArrow } from "../../../assets/icons/svgs";
 import { useTranslation } from "react-i18next";
 
-function SelectSolid({ items, onChange, value, className, label, ...other }) {
+function SelectSolid({ items, onChange, value, className, ...other }) {
   const { t } = useTranslation();
   const [isActive, setIsActive] = useState(false);
-  const [current, setCurrent] = useState(
-    value === undefined ? t(label) : value
-  );
+  const [current, setCurrent] = useState(value);
   const ref = useRef(null);
   useOutsideClick(ref, () => {
     setIsActive(false);
@@ -33,7 +31,7 @@ function SelectSolid({ items, onChange, value, className, label, ...other }) {
       ref={ref}
       {...other}
     >
-      {current}
+      {t(current)}
       <StyledArrow>
         <SvgOpenArrow />
       </StyledArrow>
@@ -42,7 +40,7 @@ function SelectSolid({ items, onChange, value, className, label, ...other }) {
           (elem) =>
             elem !== current && (
               <PopUpItem key={elem} onClick={createItemClick(elem)}>
-                {elem}
+                {t(elem)}
               </PopUpItem>
             )
         )}

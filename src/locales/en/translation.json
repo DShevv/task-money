@@ -97,5 +97,10 @@
   "LogOut": "Log Out",
   "SuccSave": "Successfully Saved",
   "SettSave": "Your profile settings have been saved",
-  "OldPass": "Old Password"
+  "OldPass": "Old Password",
+  "Min": "Min",
+  "Max": "Max",
+  "TrHistory": "Transaction history",
+  "UploadPhoto": "Upload Photo",
+  "Verified": "Verified"
 }

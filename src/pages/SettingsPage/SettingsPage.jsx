@@ -36,6 +36,8 @@ import validateSettings from "../../utils/validateSettings";
 import { SvgCross } from "../../assets/icons/svgs";
 import userStore from "../../stores/user-store";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
+import Notification from "../../components/Notification/Notification";
 
 const SettingsPage = observer(() => {
   const { t } = useTranslation();
@@ -45,7 +47,7 @@ const SettingsPage = observer(() => {
   const [errors, setErrors] = useState({
     image: false,
   });
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(true);
 
   useEffect(() => {
     getInfo();
@@ -90,7 +92,7 @@ const SettingsPage = observer(() => {
             <PhotoButtons>
               <FileInputSharp
                 accept={"image/*"}
-                placeholder={"Upload Photo"}
+                placeholder={t("UploadPhoto")}
                 onChange={fileHandler}
               />
               <PhotoRemove onClick={removeHandler}>
@@ -102,8 +104,8 @@ const SettingsPage = observer(() => {
           <ImageReq $iserror={errors.image ? 1 : 0}>
             <ReqTitle>{t("ImageReq")}:</ReqTitle>
             <ul style={{ listStyle: "none" }}>
-              <ReqItems>1. Min. 400 x 400px</ReqItems>
-              <ReqItems>2. Max. 2MB</ReqItems>
+              <ReqItems>1. {t("Min")}. 400 x 400px</ReqItems>
+              <ReqItems>2. {t("Max")}. 2MB</ReqItems>
               <ReqItems>3. {t("YourFace")}</ReqItems>
             </ul>
           </ImageReq>
@@ -119,6 +121,13 @@ const SettingsPage = observer(() => {
         }}
         onSubmit={(values) => {
           console.log(values);
+          toast.custom((toa) => (
+            <Notification
+              toa={toa}
+              text={["SuccSave", "SettSave"]}
+              status={200}
+            />
+          ));
           if (errors.image) {
             return console.log("error: image");
           }
@@ -175,8 +184,14 @@ const SettingsPage = observer(() => {
                   </PasswordContainer>
                 </FormContainer>
                 <Buttons>
-                  <ButtonThin type="submit">{t("Save")}</ButtonThin>
-                  <ButtonBordered className={"desktop"} onClick={logout}>
+                  <ButtonThin className="settings" type="submit">
+                    {t("Save")}
+                  </ButtonThin>
+                  <ButtonBordered
+                    className={"desktop"}
+                    type="button"
+                    onClick={logout}
+                  >
                     {t("LogOut")}
                   </ButtonBordered>
                 </Buttons>
@@ -185,11 +200,11 @@ const SettingsPage = observer(() => {
           );
         }}
       </Formik>
-      {success && (
+      {/*     {success && (
         <NotiContainer>
           <NotiSuccess />
           <NotiCaption>
-            <span>{t("SuccSave")}.</span>
+            <span>{t("SuccSave")}. </span>
             {t("SettSave")}.
           </NotiCaption>
           <CloseButton
@@ -200,7 +215,7 @@ const SettingsPage = observer(() => {
             {<SvgCross />}
           </CloseButton>
         </NotiContainer>
-      )}
+      )} */}
       <ButtonBordered className={"mobile"} onClick={logout}>
         {t("LogOut")}
       </ButtonBordered>

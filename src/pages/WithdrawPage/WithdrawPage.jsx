@@ -41,7 +41,7 @@ function WithdrawPage() {
       values[field] === undefined ||
       values[field] === "" ||
       values[field] < 1 ||
-      values[field] === t("Method")
+      values[field] === "Method"
     ) {
       return 1;
     }
@@ -72,9 +72,8 @@ function WithdrawPage() {
           <TopupTitle>{t("ChosePayment")}</TopupTitle>
           <SelectBorderedPrimary
             items={["Paypal", "USDT", "Visa"]}
-            label={t("Method")}
             style={{ width: "180px" }}
-            value={values.method}
+            value={values.method ? values.method : "Method"}
             onChange={methodHandler}
             $iserror={errors.method}
           />

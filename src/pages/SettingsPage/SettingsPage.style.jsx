@@ -126,6 +126,10 @@ export const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
+
+  @media (max-width: 500px) {
+    max-width: 100%;
+  }
 `;
 
 export const Buttons = styled.div`
@@ -137,6 +141,10 @@ export const Buttons = styled.div`
     flex-direction: column;
     max-width: 358px;
   }
+
+  @media (max-width: 500px) {
+    max-width: 100%;
+  }
 `;
 
 export const NotiContainer = styled.div`
@@ -146,6 +154,9 @@ export const NotiContainer = styled.div`
   width: 692px;
   display: flex;
   gap: 16px;
+  /*  position: fixed;
+  width: calc(100% - 40px);
+  bottom: 78px; */
 
   @media (max-width: 770px) {
     width: 100%;

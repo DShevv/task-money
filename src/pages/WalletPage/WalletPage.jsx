@@ -44,21 +44,17 @@ function WalletPage() {
         </ControlsButtons>
       </Controls>
       <HistoryHeader>
-        <HistoryTitle>
-          {t("Transaction")} {t("History").toLowerCase()}
-        </HistoryTitle>
+        <HistoryTitle>{t("TrHistory")}</HistoryTitle>
         <HistoryFilters className="desktop">
           <SelectSolid
-            items={[t("Success"), t("Pending"), t("Error")]}
-            value={filters.status}
-            label={t("Status")}
+            items={["Success", "Pending", "Error"]}
+            value={filters.status ? filters.status : "Status"}
             style={{ borderRadius: "0", maxWidth: "180px" }}
             onChange={createOnChange("status")}
           />
           <SelectSolid
             items={["Visa", "PayPal", "MasterCard"]}
-            value={filters.method}
-            label={t("Method")}
+            value={filters.method ? filters.method : "Method"}
             style={{ borderRadius: "0", maxWidth: "180px" }}
             onChange={createOnChange("method")}
           />

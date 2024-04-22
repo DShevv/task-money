@@ -18,6 +18,7 @@ import { Formik } from "formik";
 import Divider from "../../../components/Divider/Divider";
 import userStore from "../../../stores/user-store";
 import { useTranslation } from "react-i18next";
+import { Toaster } from "react-hot-toast";
 
 const LoginPage = observer(() => {
   const { isAuthorized, login } = authStore;
@@ -74,6 +75,7 @@ const LoginPage = observer(() => {
 
         <TextLink to="/register">{t("Login.NoAccount")}</TextLink>
       </Container>
+      <Toaster position="bottom-center" reverseOrder={false} />
     </Page>
   );
 });

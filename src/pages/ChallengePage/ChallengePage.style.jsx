@@ -35,6 +35,8 @@ export const BonusValue = styled.span`
   font-weight: 900;
   font-size: 76px;
   line-height: 100%;
+  display: flex;
+  align-items: center;
 `;
 
 export const Caption = styled.p`

@@ -80,6 +80,10 @@ export const Container = styled(NavLink)`
     padding: 4px 8px;
     border-radius: 15px;
     border-bottom: none;
+    word-break: break-all;
+    text-align: center;
+    max-width: 83px;
+    height: 100%;
 
     &.active,
     &:hover {

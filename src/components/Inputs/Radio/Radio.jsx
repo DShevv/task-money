@@ -1,6 +1,8 @@
+import { useTranslation } from "react-i18next";
 import { Container, RadioBtn, RadioInput } from "./Radio.style";
 
 function Radio({ items, name, onChange, value }) {
+  const { t } = useTranslation();
   const handleClick = (value) => {
     onChange(value);
     console.log(value);
@@ -18,7 +20,7 @@ function Radio({ items, name, onChange, value }) {
             onChange={() => handleClick(elem)}
           />
           <RadioBtn htmlFor={elem} key={elem}>
-            <span>{elem}</span>
+            <span>{t(elem)}</span>
           </RadioBtn>
         </div>
       ))}
