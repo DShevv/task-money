@@ -2,13 +2,9 @@ import MobileHeader from "../../components/MobileHeader/MobileHeader";
 import H1 from "../../components/Typography/H1/H1";
 import {
   Buttons,
-  CloseButton,
   Container,
   FormContainer,
   ImageReq,
-  NotiCaption,
-  NotiContainer,
-  NotiSuccess,
   PasswordContainer,
   Photo,
   PhotoBox,
@@ -33,7 +29,6 @@ import ButtonBordered from "../../components/Buttons/ButtonBordered/ButtonBorder
 import { observer } from "mobx-react-lite";
 import authStore from "../../stores/auth-store";
 import validateSettings from "../../utils/validateSettings";
-import { SvgCross } from "../../assets/icons/svgs";
 import userStore from "../../stores/user-store";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
@@ -43,11 +38,9 @@ const SettingsPage = observer(() => {
   const { t } = useTranslation();
   const { logout } = authStore;
   const { getInfo, changePhoto, removePhoto, user } = userStore;
-  const [photo, setPhoto] = useState();
   const [errors, setErrors] = useState({
     image: false,
   });
-  const [success, setSuccess] = useState(true);
 
   useEffect(() => {
     getInfo();
@@ -56,7 +49,7 @@ const SettingsPage = observer(() => {
   const fileHandler = (file) => {
     if (getFileSize(file) < 4) {
       file.src = window.URL.createObjectURL(file);
-      setPhoto(file);
+
       setErrors({ ...errors, image: false });
       changePhoto(file);
     } else {
@@ -65,7 +58,6 @@ const SettingsPage = observer(() => {
   };
 
   const removeHandler = () => {
-    setPhoto(undefined);
     setErrors({ ...errors, image: false });
     removePhoto();
   };
@@ -73,7 +65,6 @@ const SettingsPage = observer(() => {
   const validateImage = (e) => {
     if (e.target.naturalWidth < 400 || e.target.naturalHeight < 400) {
       setErrors({ ...errors, image: true });
-      setPhoto(undefined);
     }
   };
 
@@ -131,7 +122,6 @@ const SettingsPage = observer(() => {
           if (errors.image) {
             return console.log("error: image");
           }
-          setSuccess(true);
         }}
         validate={validateSettings}
         validateOnChange={false}
@@ -200,22 +190,7 @@ const SettingsPage = observer(() => {
           );
         }}
       </Formik>
-      {/*     {success && (
-        <NotiContainer>
-          <NotiSuccess />
-          <NotiCaption>
-            <span>{t("SuccSave")}. </span>
-            {t("SettSave")}.
-          </NotiCaption>
-          <CloseButton
-            onClick={() => {
-              setSuccess(false);
-            }}
-          >
-            {<SvgCross />}
-          </CloseButton>
-        </NotiContainer>
-      )} */}
+
       <ButtonBordered className={"mobile"} onClick={logout}>
         {t("LogOut")}
       </ButtonBordered>
