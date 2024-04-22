@@ -41,7 +41,7 @@ export const Input = styled(Field)`
 export const Eye = styled.div`
   position: absolute;
   right: 16px;
-  bottom: 15.2px;
+  bottom: 14px;
 
   cursor: pointer;
   user-select: none;

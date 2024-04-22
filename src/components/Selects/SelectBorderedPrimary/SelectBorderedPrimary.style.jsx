@@ -15,7 +15,7 @@ export const PopUp = styled.ul`
   border-bottom-right-radius: 8px;
   border-top: none;
   display: none;
-  box-shadow: 0px 6px 23px -6px rgba(0, 0, 0, 0.507);
+  box-shadow: 0px 10px 18px -6px rgba(0, 0, 0, 0.507);
   flex-direction: column;
 `;
 

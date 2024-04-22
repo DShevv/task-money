@@ -15,7 +15,7 @@ export const PopUp = styled.ul`
   display: none;
   flex-direction: column;
   background: ${(props) => props.theme.colors.secondary};
-  box-shadow: 0px 6px 23px -6px rgba(0, 0, 0, 0.507);
+  box-shadow: 0px 10px 18px -6px rgba(0, 0, 0, 0.507);
 
   &::after {
     content: "";

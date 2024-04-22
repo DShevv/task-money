@@ -24,6 +24,13 @@ function SelectSolid({ items, onChange, value, className, ...other }) {
     };
   };
 
+  const clearCurrent = () => {
+    return () => {
+      setCurrent("All");
+      onChange && onChange(undefined);
+    };
+  };
+
   return (
     <Container
       onClick={toggle}
@@ -36,6 +43,9 @@ function SelectSolid({ items, onChange, value, className, ...other }) {
         <SvgOpenArrow />
       </StyledArrow>
       <PopUp>
+        <PopUpItem key={"all"} onClick={clearCurrent()}>
+          {t("All")}
+        </PopUpItem>
         {items.map(
           (elem) =>
             elem !== current && (
