@@ -70,7 +70,7 @@ function TaskPage() {
         <SelectsContainer>
           <SelectSolid
             items={["Subscribe", "Like", "Repost"]}
-            value={"Type"}
+            label={"Type"}
             style={
               i18n.language !== "Ru" ? { width: "125px" } : { width: "210px" }
             }
@@ -78,7 +78,7 @@ function TaskPage() {
           />
           <SelectSolid
             items={["Facebook", "Youtube"]}
-            value={"SocialNetwork"}
+            label={"SocialNetwork"}
             style={{ width: "190px" }}
             onChange={createOnChange("target")}
           />

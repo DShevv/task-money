@@ -4,10 +4,10 @@ import useOutsideClick from "../../../hooks/useOutsideClick";
 import { SvgOpenArrow } from "../../../assets/icons/svgs";
 import { useTranslation } from "react-i18next";
 
-function SelectSolid({ items, onChange, value, className, ...other }) {
+function SelectSolid({ items, onChange, value, label, className, ...other }) {
   const { t } = useTranslation();
   const [isActive, setIsActive] = useState(false);
-  const [current, setCurrent] = useState(value);
+  const [current, setCurrent] = useState(value ? value : label);
   const ref = useRef(null);
   useOutsideClick(ref, () => {
     setIsActive(false);
@@ -26,7 +26,7 @@ function SelectSolid({ items, onChange, value, className, ...other }) {
 
   const clearCurrent = () => {
     return () => {
-      setCurrent("All");
+      setCurrent(label);
       onChange && onChange(undefined);
     };
   };

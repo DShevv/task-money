@@ -48,13 +48,15 @@ function WalletPage() {
         <HistoryFilters className="desktop">
           <SelectSolid
             items={["Success", "Pending", "Error"]}
-            value={filters.status ? filters.status : "Status"}
+            value={filters.status && filters.status}
+            label={"Status"}
             style={{ borderRadius: "0", maxWidth: "180px" }}
             onChange={createOnChange("status")}
           />
           <SelectSolid
             items={["Visa", "PayPal", "MasterCard"]}
-            value={filters.method ? filters.method : "Method"}
+            value={filters.method && filters.method}
+            label={"Method"}
             style={{ borderRadius: "0", maxWidth: "180px" }}
             onChange={createOnChange("method")}
           />
