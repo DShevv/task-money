@@ -31,10 +31,6 @@ export const TaskPage = observer(() => {
 
   useEffect(() => {
     fetchTasks();
-  }, []);
-
-  useEffect(() => {
-    fetchTasks();
   }, [filters]);
 
   const fetchTasks = async () => {
