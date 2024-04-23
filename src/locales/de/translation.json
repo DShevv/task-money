@@ -35,7 +35,7 @@
   "Progress": "Fortschritt",
   "Settings": "Einstellungen",
   "New": "Neu",
-  "Taken": "Genommen",
+  "In Progress": "Genommen",
   "Completed": "Abgeschlossen",
   "Subscribe": "Abonnieren",
   "Like": "Mögen",
@@ -103,5 +103,6 @@
   "TrHistory": "Verlauf der Transaktionen",
   "UploadPhoto": "Foto hochladen",
   "Verified": "Verifiziert",
-  "All": "Alle"
+  "All": "Alle",
+  "Accept": "Akzeptieren"
 }

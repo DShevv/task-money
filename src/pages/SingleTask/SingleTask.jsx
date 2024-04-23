@@ -22,14 +22,23 @@ import { useTranslation } from "react-i18next";
 import TaskService from "../../services/TaskService";
 import toast from "react-hot-toast";
 import Notification from "../../components/Notification/Notification";
+import { observer } from "mobx-react-lite";
+import authStore from "../../stores/auth-store";
 
-function SingleTask() {
+export const SingleTask = observer(() => {
   const { t } = useTranslation();
+  const { logout } = authStore;
   const [file, setFile] = useState(undefined);
   const [task, setTask] = useState();
 
   const fetchTasks = async () => {
     const res = await TaskService.getTask(1);
+
+    if (res?.response?.status === 401) {
+      logout();
+      return;
+    }
+
     if (res.status !== 200) {
       toast.custom((toa) => (
         <Notification
@@ -45,6 +54,27 @@ function SingleTask() {
   useEffect(() => {
     fetchTasks();
   }, []);
+
+  const takeTask = async () => {
+    const res = await TaskService.takeTask(task.id);
+
+    if (res?.response?.status === 401) {
+      logout();
+      return;
+    }
+
+    if (res.status !== 200) {
+      toast.custom((toa) => (
+        <Notification
+          toa={toa}
+          text={[res.response.data.detail]}
+          status={res.response.status}
+        />
+      ));
+      return;
+    }
+    setTask({ ...task, status: "In Progress" });
+  };
 
   return (
     task && (
@@ -68,21 +98,26 @@ function SingleTask() {
           <TaskLink href={task.link} target="_blank">
             {task.link}
           </TaskLink>
-          <TaskButtons>
-            <FileContainer>
-              <FileInput
-                accept={"image/*"}
-                placeholder={t("Attach")}
-                onChange={(value) => setFile(value)}
-              />
-              <span>{file ? file.name : ""}</span>
-            </FileContainer>
-            <ButtonThin onClick={() => {}}>{t("Complete")}</ButtonThin>
-          </TaskButtons>
+
+          {task.status !== "In Progress" ? (
+            <TaskButtons style={{ justifyContent: "flex-end" }}>
+              <ButtonThin onClick={takeTask}>{t("Accept")}</ButtonThin>
+            </TaskButtons>
+          ) : (
+            <TaskButtons>
+              <FileContainer>
+                <FileInput
+                  accept={"image/*"}
+                  placeholder={t("Attach")}
+                  onChange={(value) => setFile(value)}
+                />
+                <span>{file ? file.name : ""}</span>
+              </FileContainer>
+              <ButtonThin onClick={() => {}}>{t("Complete")}</ButtonThin>
+            </TaskButtons>
+          )}
         </TaskInfo>
       </Container>
     )
   );
-}
-
-export default SingleTask;
+});

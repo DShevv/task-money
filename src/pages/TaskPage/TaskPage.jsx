@@ -16,9 +16,12 @@ import TaskService from "../../services/TaskService";
 import i18n from "../../i18n";
 import toast from "react-hot-toast";
 import Notification from "../../components/Notification/Notification";
+import authStore from "../../stores/auth-store";
+import { observer } from "mobx-react-lite";
 
-function TaskPage() {
+export const TaskPage = observer(() => {
   const { t } = useTranslation();
+  const { logout } = authStore;
   const [filters, setFilters] = useState({
     category: "New",
     type: undefined,
@@ -35,7 +38,17 @@ function TaskPage() {
   }, [filters]);
 
   const fetchTasks = async () => {
-    const res = await TaskService.getAllTasks(1, filters.target, filters.type);
+    const res = await TaskService.getAllTasks(
+      1,
+      filters.target,
+      filters.type,
+      filters.category
+    );
+
+    if (res?.response?.status === 401) {
+      logout();
+      return;
+    }
 
     if (res.status !== 200) {
       toast.custom((toa) => (
@@ -62,7 +75,7 @@ function TaskPage() {
       <MobileHeader title={t("Tasks")} />
       <Filters>
         <Radio
-          items={["New", "Taken", "Completed"]}
+          items={["New", "In Progress", "Completed"]}
           name="category"
           value={filters.category}
           onChange={createOnChange("category")}
@@ -85,18 +98,17 @@ function TaskPage() {
         </SelectsContainer>
       </Filters>
       <TasksContainer>
-        {tasks.map((elem) => (
-          <Task
-            key={elem.id}
-            to={elem.id}
-            image={placeholderImg}
-            title={`${t("SubscribeTo")} ${t(elem.network)}`}
-            text={`+${elem.price} usd`}
-          />
-        ))}
+        {tasks &&
+          tasks.map((elem) => (
+            <Task
+              key={elem.id}
+              to={elem.id}
+              image={placeholderImg}
+              title={`${t("SubscribeTo")} ${t(elem.network)}`}
+              text={`+${elem.price} usd`}
+            />
+          ))}
       </TasksContainer>
     </Container>
   );
-}
-
-export default TaskPage;
+});
