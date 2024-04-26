@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.section`
@@ -58,4 +59,20 @@ export const Caption = styled.p`
     margin: 0;
     text-align: left;
   }
+`;
+
+export const ProgressLink = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 20px;
+  cursor: pointer;
+  color: ${(props) => props.theme.colors.primary};
+`;
+
+export const InfoContainer = styled.div`
+  display: flex;
+  gap: 5px;
+  align-items: center;
 `;

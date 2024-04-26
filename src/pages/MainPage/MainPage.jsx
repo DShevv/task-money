@@ -31,7 +31,11 @@ const MainPage = observer(() => {
       <Content>
         <HeaderBlock />
         <Outlet />
-        <Toaster position="bottom-center" reverseOrder={false} />
+        <Toaster
+          position="bottom-center"
+          reverseOrder={false}
+          toastOptions={{ duration: 1000 }}
+        />
       </Content>
     </Container>
   );

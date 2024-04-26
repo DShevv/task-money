@@ -4,10 +4,13 @@ import H1 from "../../components/Typography/H1/H1";
 import {
   Caption,
   Container,
+  InfoContainer,
   InfoItem,
   ProgressInfo,
+  ProgressLink,
 } from "./ProgressPage.style";
 import ProgressTable from "./ProgressTable/ProgressTable";
+import { SvgInfo } from "../../assets/icons/svgs";
 
 function ProgressPage() {
   const { t } = useTranslation();
@@ -19,7 +22,12 @@ function ProgressPage() {
       <ProgressInfo>
         <InfoItem>
           <span>{t("StatusAcc")}:</span>
-          <span>{"Vip1"}</span>
+          <InfoContainer>
+            {"Vip1"}
+            <ProgressLink to={"/progress/info"}>
+              <SvgInfo />
+            </ProgressLink>
+          </InfoContainer>
         </InfoItem>
         <InfoItem>
           <span>{t("Balance")}:</span>
