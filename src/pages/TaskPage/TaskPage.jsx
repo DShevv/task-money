@@ -16,12 +16,10 @@ import TaskService from "../../services/TaskService";
 import i18n from "../../i18n";
 import toast from "react-hot-toast";
 import Notification from "../../components/Notification/Notification";
-import authStore from "../../stores/auth-store";
 import { observer } from "mobx-react-lite";
 
 export const TaskPage = observer(() => {
   const { t } = useTranslation();
-  const { logout } = authStore;
   const [filters, setFilters] = useState({
     category: "New",
     type: undefined,
@@ -40,11 +38,6 @@ export const TaskPage = observer(() => {
       filters.type,
       filters.category
     );
-
-    if (res?.response?.status === 401) {
-      logout();
-      return;
-    }
 
     if (res.status !== 200) {
       toast.custom((toa) => (

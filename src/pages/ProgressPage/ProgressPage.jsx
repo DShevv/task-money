@@ -19,7 +19,7 @@ function ProgressPage() {
       <ProgressInfo>
         <InfoItem>
           <span>{t("StatusAcc")}:</span>
-          <span>{t("Verified")}</span>
+          <span>{"Vip1"}</span>
         </InfoItem>
         <InfoItem>
           <span>{t("Balance")}:</span>
@@ -38,35 +38,34 @@ function ProgressPage() {
       <ProgressTable
         items={[
           {
-            title: "Lorem ipsum dolor sit amet consectetur.",
-            count: 10,
-            goal: 50,
+            title: "Vip1.",
+            count: 150,
+            goal: 150,
           },
           {
-            title: "Lorem ipsum dolor sit amet consectetur.",
-            count: 45,
-            goal: 50,
+            title: "Vip2",
+            count: 170,
+            goal: 400,
           },
           {
-            title: "Lorem ipsum dolor sit amet consectetur.",
-            count: 50,
-            goal: 50,
-          },
-
-          {
-            title: "Lorem ipsum dolor sit amet consectetur.",
-            count: 23,
-            goal: 50,
+            title: "Vip3",
+            count: 170,
+            goal: 1250,
           },
           {
-            title: "Lorem ipsum dolor sit amet consectetur.",
-            count: 23,
-            goal: 50,
+            title: "Vip4",
+            count: 170,
+            goal: 2500,
           },
           {
-            title: "Lorem ipsum dolor sit amet consectetur.",
-            count: 50,
-            goal: 50,
+            title: "Vip5",
+            count: 170,
+            goal: 5000,
+          },
+          {
+            title: "Vip6",
+            count: 170,
+            goal: 10000,
           },
         ]}
       />

@@ -19,6 +19,7 @@ import Divider from "../../../components/Divider/Divider";
 import userStore from "../../../stores/user-store";
 import { useTranslation } from "react-i18next";
 import { Toaster } from "react-hot-toast";
+import validateLogin from "../../../utils/validateLogin";
 
 const LoginPage = observer(() => {
   const { isAuthorized, login } = authStore;
@@ -46,36 +47,51 @@ const LoginPage = observer(() => {
             password: "",
             remember: false,
           }}
+          validate={validateLogin}
+          validateOnChange={false}
+          validateOnBlur={false}
           onSubmit={(values) => {
             console.log(values);
             login({ email: values.email, password: values.password });
           }}
         >
-          <StyledForm>
-            <TextInput
-              type={"email"}
-              name={"email"}
-              placeholder={"example@example.com"}
-              title={t("Login.Email")}
-            />
-            <TextInput
-              type={"password"}
-              name={"password"}
-              placeholder={"•••"}
-              title={t("Login.Password")}
-            />
-            <Line>
-              <Checkbox title={t("Login.Remember")} name={"remember"} />
-              <TextLink to="/forgot">{t("Login.Forgot")}</TextLink>
-            </Line>
-            <ButtonWide type="submit">{t("Login.Login")}</ButtonWide>
-          </StyledForm>
+          {(formik) => {
+            const { errors } = formik;
+
+            return (
+              <StyledForm>
+                <TextInput
+                  type={"email"}
+                  name={"email"}
+                  placeholder={"example@example.com"}
+                  title={t("Login.Email")}
+                  iserror={errors.email ? 1 : 0}
+                />
+                <TextInput
+                  type={"password"}
+                  name={"password"}
+                  placeholder={"•••"}
+                  title={t("Login.Password")}
+                  iserror={errors.password ? 1 : 0}
+                />
+                <Line>
+                  <Checkbox title={t("Login.Remember")} name={"remember"} />
+                  <TextLink to="/forgot">{t("Login.Forgot")}</TextLink>
+                </Line>
+                <ButtonWide type="submit">{t("Login.Login")}</ButtonWide>
+              </StyledForm>
+            );
+          }}
         </Formik>
         <Divider />
 
         <TextLink to="/register">{t("Login.NoAccount")}</TextLink>
       </Container>
-      <Toaster position="bottom-center" reverseOrder={false} />
+      <Toaster
+        position="bottom-center"
+        reverseOrder={false}
+        toastOptions={{ duration: 1000 }}
+      />
     </Page>
   );
 });

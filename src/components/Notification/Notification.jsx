@@ -16,11 +16,11 @@ const Notification = ({ toa, text, status }) => {
       <NotiSuccess $ok={status === 200 ? 1 : 0} />
       <NotiCaption>
         <span>{t(text[0])} </span>
-        {t(text[1])}
+        {text[1] && t(text[1])}
       </NotiCaption>
       <CloseButton
         onClick={() => {
-          toast.dismiss(toa.id);
+          toast.remove(toa.id);
         }}
       >
         {<SvgCross />}

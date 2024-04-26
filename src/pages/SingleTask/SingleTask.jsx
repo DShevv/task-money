@@ -23,23 +23,16 @@ import TaskService from "../../services/TaskService";
 import toast from "react-hot-toast";
 import Notification from "../../components/Notification/Notification";
 import { observer } from "mobx-react-lite";
-import authStore from "../../stores/auth-store";
 import { useParams } from "react-router-dom";
 
 export const SingleTask = observer(() => {
   const { t } = useTranslation();
   const { id } = useParams();
-  const { logout } = authStore;
   const [file, setFile] = useState(undefined);
   const [task, setTask] = useState();
 
   const fetchTasks = async () => {
     const res = await TaskService.getTask(id);
-
-    if (res?.response?.status === 401) {
-      logout();
-      return;
-    }
 
     if (res.status !== 200) {
       toast.custom((toa) => (
@@ -59,11 +52,6 @@ export const SingleTask = observer(() => {
 
   const takeTask = async () => {
     const res = await TaskService.takeTask(task.id);
-
-    if (res?.response?.status === 401) {
-      logout();
-      return;
-    }
 
     if (res.status !== 200) {
       toast.custom((toa) => (
