@@ -4,6 +4,7 @@ export const Container = styled.fieldset`
   display: flex;
   gap: 10px;
   border: none;
+  flex-wrap: wrap;
 `;
 
 export const RadioBtn = styled.label`
