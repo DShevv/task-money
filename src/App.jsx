@@ -27,6 +27,8 @@ import SettingsPage from "./pages/SettingsPage/SettingsPage";
 import ChallengePage from "./pages/ChallengePage/ChallengePage";
 import RatingPage from "./pages/RatingPage/RatingPage";
 import userStore from "./stores/user-store";
+import AdvantagePage from "./pages/AdvantagePage/AdvantagePage";
+import FaqPage from "./pages/FaqPage/FaqPage";
 
 const App = observer(() => {
   const { stopStore } = authStore;
@@ -53,8 +55,12 @@ const App = observer(() => {
             <Route path="/wallet/withdraw" element={<WithdrawPage />} />
           </Route>
           <Route path="/rating" element={<RatingPage />} />
-          <Route path="/progress" element={<ProgressPage />} />
+          <Route path="/progress">
+            <Route index element={<ProgressPage />} />
+            <Route path="/progress/info" element={<AdvantagePage />} />
+          </Route>
           <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/faq" element={<FaqPage />} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />

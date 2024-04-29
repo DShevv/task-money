@@ -46,7 +46,7 @@ function ProgressPage() {
       <ProgressTable
         items={[
           {
-            title: "Vip1.",
+            title: "Vip1",
             count: 150,
             goal: 150,
           },

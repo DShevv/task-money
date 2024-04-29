@@ -3,8 +3,8 @@ import { Container, LinksList } from "./NavBar.style";
 import { UserInfo } from "./UserInfo/UserInfo";
 import {
   SvgChallenge,
+  SvgFAQ,
   SvgProgress,
-  SvgRating,
   SvgSettings,
   SvgTasks,
   SvgWallet,
@@ -44,13 +44,13 @@ function NavBar() {
           </SideBarLink>
         </li>
         <li>
-          <SideBarLink to="/rating" title={t("Rating")}>
-            <SvgRating />
+          <SideBarLink to="/progress" title={t("Progress")}>
+            <SvgProgress />
           </SideBarLink>
         </li>
         <li>
-          <SideBarLink to="/progress" title={t("Progress")}>
-            <SvgProgress />
+          <SideBarLink to="/faq" title={t("FAQ")}>
+            <SvgFAQ />
           </SideBarLink>
         </li>
         <li className="desktop">
