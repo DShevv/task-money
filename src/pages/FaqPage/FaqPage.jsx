@@ -1,6 +1,14 @@
 import MobileHeader from "../../components/MobileHeader/MobileHeader";
 import H1 from "../../components/Typography/H1/H1";
-import { Answer, Container, Question, QuestionBlock } from "./FaqPage.style";
+import {
+  Answer,
+  Container,
+  Question,
+  QuestionBlock,
+  StyledTable,
+  TableBody,
+  TableHead,
+} from "./FaqPage.style";
 
 import { useTranslation } from "react-i18next";
 
@@ -192,6 +200,246 @@ function FaqPage() {
           Р2Р.
         </Answer>
       </QuestionBlock>
+      <StyledTable>
+        <TableHead>
+          <td>Grade</td>
+          <td>Deposit per vip level</td>
+          <td>L1 referral reward</td>
+          <td>Level 1 task commission</td>
+          <td>L2 referral reward</td>
+          <td>Level 2 task commission</td>
+        </TableHead>
+        <TableBody>
+          <tr>
+            <td rowSpan={6}>vip1 (150USDT)</td>
+            <td>vip1 (150USDT)</td>
+            <td rowSpan={6}>24USDT</td>
+            <td>0.1125USDT</td>
+            <td rowSpan={6}>9USDT</td>
+            <td>0.075USDT</td>
+          </tr>
+          <tr>
+            <td>vip2 (400USDT)</td>
+            <td>0.3168USDT</td>
+            <td>0.2112USDT</td>
+          </tr>
+          <tr>
+            <td>vip3 (1250USDT)</td>
+            <td>1.0422USDT</td>
+            <td>0.6948USDT</td>
+          </tr>
+          <tr>
+            <td>vip4 (2500USDT)</td>
+            <td>2.205USDT</td>
+            <td>1.47USDT</td>
+          </tr>
+          <tr>
+            <td>vip5 (5000USDT)</td>
+            <td>4.686USDT</td>
+            <td>3.124USDT</td>
+          </tr>
+          <tr>
+            <td>vip6 (10000USDT)</td>
+            <td>9.996USDT</td>
+            <td>6.664USDT</td>
+          </tr>
+          <tr>
+            <td rowSpan={6}>vip2 (400USDT)</td>
+            <td>vip1 (150USDT)</td>
+            <td>24USDT</td>
+            <td>0.1125USDT</td>
+            <td>9USDT</td>
+            <td>0.075USDT</td>
+          </tr>
+          <tr>
+            <td>vip2 (400USDT)</td>
+            <td rowSpan={5}>64USDT</td>
+            <td>0.3168USDT</td>
+            <td rowSpan={5}>24USDT</td>
+            <td>0.2112USDT</td>
+          </tr>
+          <tr>
+            <td>vip3 (1250USDT)</td>
+            <td>1.0422USDT</td>
+            <td>0.6948USDT</td>
+          </tr>
+          <tr>
+            <td>vip4 (2500USDT)</td>
+            <td>2.205USDT</td>
+            <td>1.47USDT</td>
+          </tr>
+          <tr>
+            <td>vip5 (5000USDT)</td>
+            <td>4.686USDT</td>
+            <td>3.124USDT</td>
+          </tr>
+          <tr>
+            <td>vip6 (10000USDT)</td>
+            <td>9.996USDT</td>
+            <td>6.664USDT</td>
+          </tr>
+          <tr>
+            <td rowSpan={6}>vip3 (1250USDT)</td>
+            <td>vip1 (150USDT)</td>
+            <td>24USDT</td>
+            <td>0.1125USDT</td>
+            <td>9USDT</td>
+            <td>0.075USDT</td>
+          </tr>
+          <tr>
+            <td>vip2 (400USDT)</td>
+            <td>64USDT</td>
+            <td>0.3168USDT</td>
+            <td>24USDT</td>
+            <td>0.2112USDT</td>
+          </tr>
+          <tr>
+            <td>vip3 (1250USDT)</td>
+            <td rowSpan={4}>200USDT</td>
+            <td>1.0422USDT</td>
+            <td rowSpan={4}>75USDT</td>
+            <td>0.6948USDT</td>
+          </tr>
+          <tr>
+            <td>vip4 (2500USDT)</td>
+            <td>2.205USDT</td>
+            <td>1.47USDT</td>
+          </tr>
+          <tr>
+            <td>vip5 (5000USDT)</td>
+            <td>4.686USDT</td>
+            <td>3.124USDT</td>
+          </tr>
+          <tr>
+            <td>vip6 (10000USDT)</td>
+            <td>9.996USDT</td>
+            <td>6.664USDT</td>
+          </tr>
+          <tr>
+            <td rowSpan={6}>vip4 (2500USDT)</td>
+            <td>vip1 (150USDT)</td>
+            <td>24USDT</td>
+            <td>0.1125USDT</td>
+            <td>9USDT</td>
+            <td>0.075USDT</td>
+          </tr>
+          <tr>
+            <td>vip2 (400USDT)</td>
+            <td>64USDT</td>
+            <td>0.3168USDT</td>
+            <td>24USDT</td>
+            <td>0.2112USDT</td>
+          </tr>
+          <tr>
+            <td>vip3 (1250USDT)</td>
+            <td>200USDT</td>
+            <td>1.0422USDT</td>
+            <td>75USDT</td>
+            <td>0.6948USDT</td>
+          </tr>
+          <tr>
+            <td>vip4 (2500USDT)</td>
+            <td rowSpan={3}>400USDT</td>
+            <td>2.205USDT</td>
+            <td rowSpan={3}>150USD</td>
+            <td>1.47USDT</td>
+          </tr>
+          <tr>
+            <td>vip5 (5000USDT)</td>
+            <td>4.686USDT</td>
+            <td>3.124USDT</td>
+          </tr>
+          <tr>
+            <td>vip6 (10000USDT)</td>
+            <td>9.996USDT</td>
+            <td>6.664USDT</td>
+          </tr>
+          <tr>
+            <td rowSpan={6}>vip5 (5000USDT)</td>
+            <td>vip1 (150USDT)</td>
+            <td>24USDT</td>
+            <td>0.1125USDT</td>
+            <td>9USDT</td>
+            <td>0.075USDT</td>
+          </tr>
+          <tr>
+            <td>vip2 (400USDT)</td>
+            <td>64USDT</td>
+            <td>0.3168USDT</td>
+            <td>24USDT</td>
+            <td>0.2112USDT</td>
+          </tr>
+          <tr>
+            <td>vip3 (1250USDT)</td>
+            <td>200USDT</td>
+            <td>1.0422USDT</td>
+            <td>75USDT</td>
+            <td>0.6948USDT</td>
+          </tr>
+          <tr>
+            <td>vip4 (2500USDT)</td>
+            <td>400USDT</td>
+            <td>2.205USDT</td>
+            <td>150USD</td>
+            <td>1.47USDT</td>
+          </tr>
+          <tr>
+            <td>vip5 (5000USDT)</td>
+            <td rowSpan={2}>800USDT</td>
+            <td>4.686USDT</td>
+            <td rowSpan={2}>300USDT</td>
+            <td>3.124USDT</td>
+          </tr>
+          <tr>
+            <td>vip6 (10000USDT)</td>
+            <td>9.996USDT</td>
+            <td>6.664USDT</td>
+          </tr>
+          <tr>
+            <td rowSpan={6}>vip6 (10000USDT)</td>
+            <td>vip1 (150USDT)</td>
+            <td>24USDT</td>
+            <td>0.1125USDT</td>
+            <td>9USDT</td>
+            <td>0.075USDT</td>
+          </tr>
+          <tr>
+            <td>vip2 (400USDT)</td>
+            <td>64USDT</td>
+            <td>0.3168USDT</td>
+            <td>24USDT</td>
+            <td>0.2112USDT</td>
+          </tr>
+          <tr>
+            <td>vip3 (1250USDT)</td>
+            <td>200USDT</td>
+            <td>1.0422USDT</td>
+            <td>75USDT</td>
+            <td>0.6948USDT</td>
+          </tr>
+          <tr>
+            <td>vip4 (2500USDT)</td>
+            <td>400USDT</td>
+            <td>2.205USDT</td>
+            <td>150USD</td>
+            <td>1.47USDT</td>
+          </tr>
+          <tr>
+            <td>vip5 (5000USDT)</td>
+            <td>800USDT</td>
+            <td>4.686USDT</td>
+            <td>300USDT</td>
+            <td>3.124USDT</td>
+          </tr>
+          <tr>
+            <td>vip6 (10000USDT)</td>
+            <td>1600USDT</td>
+            <td>9.996USDT</td>
+            <td>600USDT</td>
+            <td>6.664USDT</td>
+          </tr>
+        </TableBody>
+      </StyledTable>
     </Container>
   );
 }
