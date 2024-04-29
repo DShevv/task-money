@@ -6,6 +6,7 @@ export const Container = styled.ul`
   flex-direction: column;
   width: 100%;
   margin-top: 8px;
+  max-width: 1280px;
 
   li {
     width: 100%;

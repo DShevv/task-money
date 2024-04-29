@@ -6,6 +6,7 @@ export const HistoryHeader = styled.div`
   padding: 19px 26px 0px 26px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 2fr 1fr;
+  max-width: 1280px;
   gap: 26px;
 
   @media (max-width: 1024px) {
@@ -57,5 +58,7 @@ export const HistoryFilters = styled.div`
 export const TextUnit = styled.div`
   margin-bottom: 12px;
   font-size: 16px;
+  max-width: 1280px;
+
   color: ${(props) => props.theme.colors.text};
 `;
