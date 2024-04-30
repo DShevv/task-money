@@ -11,6 +11,8 @@ import {
   Title,
 } from "./SingleChallengePage.style";
 import SingleRevenueTable from "./SingleRevenueTable/SingleRevenueTable";
+import { BackLink } from "../SingleTask/SingleTask.style";
+import { SvgBackArrow } from "../../assets/icons/svgs";
 
 function SingleChallengePage() {
   const { t } = useTranslation();
@@ -19,6 +21,12 @@ function SingleChallengePage() {
     <Container style={{ gap: "16px" }}>
       <H1 className={"desktop"}>Правила</H1>
       <MobileHeader title={"Правила"} />
+      <BackLink to={"/wallet"}>
+        <SvgBackArrow />
+        <span>
+          {t("BackTo")} {t("Challenge").toLowerCase()}
+        </span>
+      </BackLink>
       <Title>1 мая международный день труда</Title>
       <TextUnit>
         Чтобы наградить всех работников C Star за их усердную работу во время

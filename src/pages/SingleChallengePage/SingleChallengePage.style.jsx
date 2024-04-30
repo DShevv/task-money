@@ -66,6 +66,7 @@ export const TextUnit = styled.div`
 
 export const Title = styled.h2`
   margin-bottom: 20px;
+  margin-top: 40px;
   font-weight: 500;
   font-size: 32px;
   color: ${(props) => props.theme.colors.primary};
