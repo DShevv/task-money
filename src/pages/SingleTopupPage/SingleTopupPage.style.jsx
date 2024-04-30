@@ -7,10 +7,11 @@ export const StyledContainer = styled(Container)``;
 export const TopupInfo = styled(TaskInfo)`
   @media (max-width: 1024px) {
     padding: 28px 16px;
+    max-width: calc(100% + 32px);
   }
 
   @media (max-width: 600px) {
-    gap: 160px;
+    /*  gap: 160px; */
   }
 `;
 
