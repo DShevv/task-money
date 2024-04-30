@@ -6,9 +6,11 @@ import { NavLink } from "react-router-dom";
 import SelectSolidLang from "../Selects/SelectSolidLang/SelectSolidLang";
 import { useState } from "react";
 import i18n from "../../i18n";
+import userStore from "../../stores/user-store";
 
 function MobileHeader({ title, className, ...other }) {
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+  const { user } = userStore;
 
   const chooseLanguage = (value) => {
     i18n.changeLanguage(value);
@@ -29,7 +31,10 @@ function MobileHeader({ title, className, ...other }) {
           style={{ marginTop: "0px" }}
         />
         <NavLink to={"/settings"}>
-          <UserImage src={placeholderImage} alt={"username"} />
+          <UserImage
+            src={user.photo ? user.photo : placeholderImage}
+            alt={"username"}
+          />
         </NavLink>
       </Controls>
     </Container>
