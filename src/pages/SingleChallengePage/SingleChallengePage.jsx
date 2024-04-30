@@ -21,7 +21,7 @@ function SingleChallengePage() {
     <Container style={{ gap: "16px" }}>
       <H1 className={"desktop"}>Правила</H1>
       <MobileHeader title={"Правила"} />
-      <BackLink to={"/wallet"}>
+      <BackLink to={"/challenge"}>
         <SvgBackArrow />
         <span>
           {t("BackTo")} {t("Challenge").toLowerCase()}
