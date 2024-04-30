@@ -38,11 +38,7 @@ function ProgressPage() {
           <span>100</span>
         </InfoItem>
       </ProgressInfo>
-      <Caption>
-        Lorem ipsum dolor sit amet consectetur. Gravida turpis hac magna
-        senectus. Pellentesque lorem blandit nam curabitur. Ipsum nascetur diam
-        purus tincidunt sed eu diam massa risus.
-      </Caption>
+      <Caption></Caption>
       <ProgressTable
         items={[
           {

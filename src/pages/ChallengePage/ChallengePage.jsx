@@ -20,7 +20,7 @@ function ChallengePage() {
     <Container>
       <H1 className={"desktop"}>{t("Challenge")}</H1>
       <MobileHeader title={t("Challenge")} />
-      <Radio
+      {/*    <Radio
         items={["Dally", "Weekly", "Monthly"]}
         name={"period"}
         value={filter}
@@ -32,11 +32,11 @@ function ChallengePage() {
           {t("ChallengePage.Total")} <br />
           {t("ChallengePage.Extra")}
         </span>
-      </BonusContainer>
+      </BonusContainer> */}
       <Caption>
-        Lorem ipsum dolor sit amet consectetur. Gravida turpis hac magna
+        {/*   Lorem ipsum dolor sit amet consectetur. Gravida turpis hac magna
         senectus. Pellentesque lorem blandit nam curabitur. Ipsum nascetur diam
-        purus tincidunt sed eu diam massa risus.
+        purus tincidunt sed eu diam massa risus. */}
       </Caption>
       <ChallengeTable
         items={[
@@ -47,21 +47,6 @@ function ChallengePage() {
             count: 0,
             goal: 1,
             to: "1",
-          },
-          {
-            image: placeholderImage,
-            revenue: "+5 %",
-            text: "Lorem ipsum dolor sit amet consectetur.",
-            count: 23,
-            goal: 50,
-            to: "2",
-          },
-          {
-            image: placeholderImage,
-            revenue: "+5 %",
-            text: "Lorem ipsum dolor sit amet consectetur.",
-            count: 50,
-            goal: 50,
           },
         ]}
       />
