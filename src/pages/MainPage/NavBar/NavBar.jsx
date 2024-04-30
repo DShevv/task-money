@@ -10,13 +10,19 @@ import {
   SvgWallet,
 } from "../../../assets/icons/svgs";
 import SelectBordered from "../../../components/Selects/SelectBordered/SelectBordered";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import i18n from "../../../i18n";
 import { useTranslation } from "react-i18next";
+import TaskService from "../../../services/TaskService";
 
 function NavBar() {
   const { t } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+  const [taskCount, setTaskCount] = useState(0);
+
+  useEffect(() => {
+    getTaskCount();
+  }, []);
 
   const chooseLanguage = (value) => {
     i18n.changeLanguage(value);
@@ -24,12 +30,24 @@ function NavBar() {
     localStorage.setItem("lang", value);
   };
 
+  const getTaskCount = async () => {
+    const res = await TaskService.getAllTasks(1, undefined, undefined, "New");
+
+    if (res.status === 200) {
+      setTaskCount(res.data.length);
+    }
+
+    setTimeout(() => {
+      getTaskCount();
+    }, 60000);
+  };
+
   return (
     <Container>
       <UserInfo />
       <LinksList>
         <li>
-          <SideBarLink to="/tasks" title={t("Tasks")} count={100}>
+          <SideBarLink to="/tasks" title={t("Tasks")} count={taskCount}>
             <SvgTasks />
           </SideBarLink>
         </li>

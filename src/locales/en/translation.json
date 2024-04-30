@@ -105,5 +105,6 @@
   "Verified": "Verified",
   "All": "All",
   "Accept": "Accept",
-  "On Review": "On Review"
+  "On Review": "On Review",
+  "withAmount": "Withdraw amount"
 }

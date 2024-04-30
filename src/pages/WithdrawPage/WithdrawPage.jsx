@@ -90,7 +90,7 @@ function WithdrawPage() {
           <TextInputBalance
             type={"number"}
             name={"amount"}
-            placeholder={t("topAmount")}
+            placeholder={t("withAmount")}
             value={values.amount}
             iserror={errors.amount}
             onChange={amountHandler}
