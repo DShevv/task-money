@@ -20,7 +20,7 @@ function WalletPage() {
 
   const [filters, setFilters] = useState({
     status: undefined,
-    method: undefined,
+    currency: undefined,
   });
 
   const createOnChange = (filter) => {
@@ -54,11 +54,11 @@ function WalletPage() {
             onChange={createOnChange("status")}
           />
           <SelectSolid
-            items={["Visa", "PayPal", "MasterCard"]}
-            value={filters.method && filters.method}
-            label={"Method"}
+            items={["USD", "USDT", "RUB"]}
+            value={filters.currency && filters.currency}
+            label={"Currency"}
             style={{ borderRadius: "0", maxWidth: "180px" }}
-            onChange={createOnChange("method")}
+            onChange={createOnChange("currency")}
           />
         </HistoryFilters>
       </HistoryHeader>

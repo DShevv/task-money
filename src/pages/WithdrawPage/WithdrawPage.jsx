@@ -71,9 +71,9 @@ function WithdrawPage() {
         <TopupHeader>
           <TopupTitle>{t("ChosePayment")}</TopupTitle>
           <SelectBorderedPrimary
-            items={["Paypal", "USDT", "Visa"]}
+            items={["USD", "USDT", "RUB"]}
             style={{ width: "180px" }}
-            value={values.method ? values.method : "Method"}
+            value={values.method ? values.method : "Currency"}
             onChange={methodHandler}
             $iserror={errors.method}
           />
