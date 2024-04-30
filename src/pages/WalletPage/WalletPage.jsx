@@ -64,11 +64,24 @@ function WalletPage() {
       </HistoryHeader>
       <HistoryTable
         items={[
-          { status: "Status", method: "Method", sum: "Sum", to: "topup/1" },
-          { status: "Status", method: "Method", sum: "Sum", to: "topup/2" },
-          { status: "Status", method: "Method", sum: "Sum", to: "1" },
-          { status: "Status", method: "Method", sum: "Sum", to: "1" },
-          { status: "Status", method: "Method", sum: "Sum", to: "1" },
+          {
+            status: t("Topup"),
+            method: "Paypal",
+            sum: "100 USDT",
+            to: "topup/1",
+          },
+          {
+            status: t("Topup"),
+            method: "Paypal",
+            sum: "100 USDT",
+            to: "topup/1",
+          },
+          {
+            status: t("Topup"),
+            method: "Paypal",
+            sum: "100 USDT",
+            to: "topup/1",
+          },
         ]}
       />
     </Container>

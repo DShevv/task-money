@@ -19,7 +19,7 @@ export const Container = styled.ul`
   }
 `;
 
-export const Item = styled(NavLink)`
+export const Item = styled.div`
   width: 100%;
   padding: 19px 26px 18px 26px;
   display: grid;
@@ -34,7 +34,7 @@ export const Item = styled(NavLink)`
   line-height: 100%;
   color: ${(props) => props.theme.colors.text};
   text-decoration: none;
-  cursor: pointer;
+  /* cursor: pointer;
 
   &:hover {
     background-color: ${(props) => props.theme.colors.primary};
@@ -43,7 +43,7 @@ export const Item = styled(NavLink)`
 
   &:hover div {
     color: ${(props) => props.theme.colors.textDark};
-  }
+  } */
 
   @media (max-width: 1024px) {
     padding: 15px 16px 14px 16px;
