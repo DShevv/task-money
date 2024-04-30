@@ -42,10 +42,11 @@ function ChallengePage() {
         items={[
           {
             image: placeholderImage,
-            revenue: "+5 %",
-            text: "Lorem ipsum dolor sit amet consectetur.",
-            count: 23,
-            goal: 50,
+            revenue: "+150 USDT",
+            text: "Международный день труда.",
+            count: 0,
+            goal: 1,
+            to: "1",
           },
           {
             image: placeholderImage,
@@ -53,6 +54,7 @@ function ChallengePage() {
             text: "Lorem ipsum dolor sit amet consectetur.",
             count: 23,
             goal: 50,
+            to: "2",
           },
           {
             image: placeholderImage,

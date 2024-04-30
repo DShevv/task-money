@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.ul`
@@ -20,6 +21,11 @@ export const Item = styled.li`
     gap: 18px;
     width: 100%;
   }
+`;
+
+export const ItemWrapper = styled(NavLink)`
+  display: block;
+  text-decoration: none;
 `;
 
 export const ItemHeader = styled.div`

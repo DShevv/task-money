@@ -38,7 +38,13 @@ export const QuestionBlock = styled.div``;
 export const StyledTable = styled.table`
   border-spacing: 10px;
   border-collapse: collapse;
-  padding: 5px;
+
+  max-width: 1024px;
+
+  td,
+  th {
+    padding: 5px;
+  }
 
   @media (max-width: 665px) {
     font-size: 12px;
@@ -51,7 +57,8 @@ export const StyledTable = styled.table`
   @media (max-width: 460px) {
     font-size: 9px;
 
-    td {
+    td,
+    th {
       padding: 2px;
     }
   }
@@ -59,7 +66,8 @@ export const StyledTable = styled.table`
   @media (max-width: 400px) {
     font-size: 8px;
 
-    td {
+    td,
+    th {
       padding: 1px;
     }
   }
@@ -68,7 +76,7 @@ export const StyledTable = styled.table`
 export const TableHead = styled.thead`
   padding-bottom: 10px;
 
-  td {
+  th {
     color: ${(props) => props.theme.colors.primary};
     border: solid 1px ${(props) => props.theme.colors.primary};
     text-align: center;

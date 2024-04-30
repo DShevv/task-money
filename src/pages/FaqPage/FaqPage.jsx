@@ -202,12 +202,14 @@ function FaqPage() {
       </QuestionBlock>
       <StyledTable>
         <TableHead>
-          <td>Grade</td>
-          <td>Deposit per vip level</td>
-          <td>L1 referral reward</td>
-          <td>Level 1 task commission</td>
-          <td>L2 referral reward</td>
-          <td>Level 2 task commission</td>
+          <tr>
+            <th>Grade</th>
+            <th>Deposit per vip level</th>
+            <th>L1 referral reward</th>
+            <th>Level 1 task commission</th>
+            <th>L2 referral reward</th>
+            <th>Level 2 task commission</th>
+          </tr>
         </TableHead>
         <TableBody>
           <tr>

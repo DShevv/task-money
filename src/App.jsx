@@ -29,6 +29,7 @@ import RatingPage from "./pages/RatingPage/RatingPage";
 import userStore from "./stores/user-store";
 import AdvantagePage from "./pages/AdvantagePage/AdvantagePage";
 import FaqPage from "./pages/FaqPage/FaqPage";
+import SingleChallengePage from "./pages/SingleChallengePage/SingleChallengePage";
 
 const App = observer(() => {
   const { stopStore } = authStore;
@@ -47,7 +48,10 @@ const App = observer(() => {
         <Route path="/" element={<MainPage />}>
           <Route path="/tasks" element={<TaskPage />} />
           <Route path="/tasks/:id" element={<SingleTask />} />
-          <Route path="/challenge" element={<ChallengePage />} />
+          <Route path="/challenge">
+            <Route index element={<ChallengePage />} />
+            <Route path="/challenge/:id" element={<SingleChallengePage />} />
+          </Route>
           <Route path="/wallet">
             <Route index element={<WalletPage />} />
             <Route path="/wallet/topup" element={<TopupPage />} />
