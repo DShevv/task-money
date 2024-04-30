@@ -64,7 +64,7 @@ export const TaskPage = observer(() => {
       <MobileHeader title={t("Tasks")} />
       <Filters>
         <Radio
-          items={["New", "In Progress", "Completed"]}
+          items={["New", "In Progress", "On Review", "Completed"]}
           name="category"
           value={filters.category}
           onChange={createOnChange("category")}

@@ -30,4 +30,15 @@ export default class TaskService {
       },
     });
   }
+
+  static async submitTask(id, file) {
+    const form = new FormData();
+    form.append("file", file);
+
+    return api.post(`/make_task/${id}`, form, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  }
 }
