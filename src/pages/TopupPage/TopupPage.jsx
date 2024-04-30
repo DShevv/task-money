@@ -79,8 +79,8 @@ function TopupPage() {
           <TopupHeader>
             <TopupTitle>{t("ChosePayment")}</TopupTitle>
             <SelectBorderedPrimary
-              items={["Paypal", "USDT", "Visa"]}
-              value={values.method ? values.method : "Method"}
+              items={["USD", "USDT", "RUB"]}
+              value={values.method ? values.method : "Currency"}
               onChange={methodHandler}
               $iserror={errors.method}
             />
@@ -104,7 +104,9 @@ function TopupPage() {
             </HeaderItem>
             <HeaderItem>
               <div>{t("AmountToBePaid")}:</div>
-              <div>100 USD</div>
+              <div>
+                {values.amount} {values.method}
+              </div>
             </HeaderItem>
           </SecondHeader>
           <TaskButtons>

@@ -106,5 +106,6 @@
   "All": "All",
   "Accept": "Accept",
   "On Review": "On Review",
-  "withAmount": "Withdraw amount"
+  "withAmount": "Withdraw amount",
+  "Currency": "Currency"
 }
